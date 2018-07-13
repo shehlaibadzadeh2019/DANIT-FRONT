@@ -6,90 +6,89 @@
 }
 
 .document {
-	background-color: #eeeeee;
 	padding-top: 20px;
 	padding-bottom: 20px; 
+	background-color: #eeeeee;
 }
 
 .main {
-	width: 1280px;
-	background-color: rgb(255, 255, 255);
 	margin-left: auto;
 	margin-right: auto;
+	width: 1280px;
 	border-spacing: 0px;
+	background-color: rgb(255, 255, 255);
 }
 
 .top-navbar {
-	height: 81px;
 	text-align: center;
 	padding-top: 32px;
+	height: 81px;
 }
 
 .top-navbar-link {
+	padding-right: 65px;
 	font-family: Roboto, sans-serif;
 	font-weight: 900;
-	color: #16a085;
 	font-size: 18;
+	color: #16a085;
 	letter-spacing: 2px;
 	text-decoration: none;
 	text-transform: UPPERCASE;
-	padding-right: 65px;
 }
 
 .main-image{
-	display: block;
 	width: 1280px;
 	height: 790px;
+	display: block;
 }
 
 .middle-main-zone {
+	text-align: center;
 	width: 1280px;
 	background-color: #f5f6f7;
-	text-align: center;
 }
 
 .header-text {
-	padding-top: 59px;
+	text-align: center;
+	margin-top: 59px;
+	margin-bottom: 34px;
 	font-family: Roboto, sans-serif;
 	font-weight: 900;
-	color: #373737;
 	font-size: 22px;
+	color: #373737;
 	letter-spacing: 2px;
-	text-align: center;
 	text-transform: UPPERCASE;
-	margin-bottom: 34px;
 }
 
 .main-text {
+    padding-left: 110px;
+    padding-right: 110px; 
+	line-height: 26px;
 	font-family: Roboto, sans-serif;
 	font-weight: 900;
 	color: #373737;
 	font-size: 16px;
 	letter-spacing: 2px;
-	line-height: 26px;
-    padding-left: 110px;
-    padding-right: 110px; 
-
 }
 
 .button-green {
-	margin-left: auto;
-    margin-right: auto;
 	margin-top: 41px;
 	margin-bottom: 94px;
+	margin-left: auto;
+    margin-right: auto;
 	width: 192px;
 	height: 51px;
-	background-color: #16a085;
 	border-radius: 3px;
+	background-color: #16a085;
 }
 
 .button-green-text {
-	padding-top: 23px;
 	text-align: center;
-	color: #ffffff;
+	padding-top: 23px;
 	font-family: GothamRounded;
 	font-size: 12px;
 	font-weight: 700;
+	color: #ffffff;
 	letter-spacing: 3px;
 	text-transform: UPPERCASE;
 }
