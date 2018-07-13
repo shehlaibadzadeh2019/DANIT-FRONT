@@ -6,43 +6,50 @@
 }
 
 .document {
+	background-color: #eeeeee;
+	padding-top: 20px;
+	padding-bottom: 20px; 
+}
+
+.main {
 	width: 1280px;
-	background-color: #f5f6f7;
+	background-color: rgb(255, 255, 255);
 	margin-left: auto;
 	margin-right: auto;
+	border-spacing: 0px;
 }
 
 .top-navbar {
-	padding-top: 32px;
-	margin-bottom: 35px;
+	height: 81px;
 	text-align: center;
+	padding-top: 32px;
 }
 
 .top-navbar-link {
 	font-family: Roboto, sans-serif;
 	font-weight: 900;
 	color: #16a085;
-	font-size: 18px;
+	font-size: 18;
 	letter-spacing: 2px;
 	text-decoration: none;
 	text-transform: UPPERCASE;
 	padding-right: 65px;
 }
 
-.image-main {
+.main-image{
+	display: block;
 	width: 1280px;
 	height: 790px;
 }
 
 .middle-main-zone {
-	margin-top: 34px;
-	margin-left: 110px;
-    margin-right: 110px; 
+	width: 1280px;
+	background-color: #f5f6f7;
 	text-align: center;
 }
 
 .header-text {
-	margin-top: 59px;
+	padding-top: 59px;
 	font-family: Roboto, sans-serif;
 	font-weight: 900;
 	color: #373737;
@@ -50,6 +57,7 @@
 	letter-spacing: 2px;
 	text-align: center;
 	text-transform: UPPERCASE;
+	margin-bottom: 34px;
 }
 
 .main-text {
@@ -59,6 +67,9 @@
 	font-size: 16px;
 	letter-spacing: 2px;
 	line-height: 26px;
+    padding-left: 110px;
+    padding-right: 110px; 
+
 }
 
 .button-green {
@@ -85,8 +96,5 @@
 
 .bottom-copyright-zone {
 	height: 108px;
-	background-color: rgb(255, 255, 255);
-	padding-right: 104px;
-	padding-top: 47px;
 	text-align: right;
 }
