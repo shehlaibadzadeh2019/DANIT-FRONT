@@ -6,14 +6,12 @@
 }
 
 .document {
-	padding-top: 20px;
-	padding-bottom: 20px; 
+	padding: 20px 0;
 	background-color: #eeeeee;
 }
 
 .main {
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	width: 1280px;
 	border-spacing: 0px;
 	background-color: rgb(255, 255, 255);
@@ -22,7 +20,7 @@
 .top-navbar {
 	text-align: center;
 	padding-top: 32px;
-	height: 81px;
+	padding-bottom: 35px;
 }
 
 .top-navbar-link {
@@ -32,17 +30,18 @@
 	font-size: 18;
 	color: #16a085;
 	letter-spacing: 2px;
-	text-decoration: none;
 	text-transform: UPPERCASE;
+	text-decoration: none;
 }
 
 .main-image{
+	display: block;
 	width: 1280px;
 	height: 790px;
-	display: block;
 }
 
-.middle-main-zone {
+.main-zone {
+	display: inline-block;
 	text-align: center;
 	width: 1280px;
 	background-color: #f5f6f7;
@@ -50,7 +49,7 @@
 
 .header-text {
 	text-align: center;
-	margin-top: 59px;
+	margin-top: 56px;
 	margin-bottom: 34px;
 	font-family: Roboto, sans-serif;
 	font-weight: 900;
@@ -61,30 +60,27 @@
 }
 
 .main-text {
-    padding-left: 110px;
-    padding-right: 110px; 
+	padding: 0 110px;
 	line-height: 26px;
 	font-family: Roboto, sans-serif;
 	font-weight: 900;
-	color: #373737;
 	font-size: 16px;
+	color: #373737;
 	letter-spacing: 2px;
 }
 
 .button-green {
-	margin-top: 41px;
-	margin-bottom: 94px;
-	margin-left: auto;
-    margin-right: auto;
+	display: inline-block;
+	text-align: center;
+	margin: 41px auto 94px;
+	padding-top: 23px;
+	padding-bottom: 18px;
 	width: 192px;
-	height: 51px;
 	border-radius: 3px;
 	background-color: #16a085;
 }
 
 .button-green-text {
-	text-align: center;
-	padding-top: 23px;
 	font-family: GothamRounded;
 	font-size: 12px;
 	font-weight: 700;
@@ -93,7 +89,7 @@
 	text-transform: UPPERCASE;
 }
 
-.bottom-copyright-zone {
-	height: 108px;
+.footer-zone {
 	text-align: right;
+	padding: 46px 0px;
 }
