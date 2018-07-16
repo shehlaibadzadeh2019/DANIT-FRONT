@@ -1,0 +1,84 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.document{
+	width: 1480px;
+	margin: 25px auto;
+	padding: 30px 100px;
+	background-color: #ffffff;
+}
+
+.header {
+	margin-top: 31px;
+	margin-bottom: 51px;
+}
+
+.headline-black{
+	padding-bottom: 45px;
+	font-family: 'Myriad Pro', monotype;
+	color:  #000000;
+	font-size: 80px;
+	font-weight: 400;
+}
+
+.headline-blue{
+	font-family: 'Myriad Pro';
+	color:  #4bcaff;
+	font-size: 80px;
+	font-weight: 400;
+	text-align: center;
+}
+
+.top-navbar{
+	text-align: center;
+	height: 69px;
+	background-color:  #35444f;
+	list-style: none;
+}
+
+.top-navbar-entry{
+	display: inline-block;
+	height: 69px;
+	padding: 21px;
+	box-sizing: border-box;
+	font-family: 'Myriad Pro', monotype;
+	color:  #ffffff;
+	font-size: 24px;
+	font-weight: 400;
+}
+
+.top-navbar-entry-selected{
+	background-color:  #222f3a;
+	border-style: none solid;
+	border-color: #818181;
+	border-width: 0px 1px;
+}
+
+.left-navbar{
+	margin-bottom: 26px;
+	margin-right: 26px;
+	width: 344px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #32424e;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+.left-navbar-entry{
+	padding: 21px 44px;
+	font-family: 'Myriad Pro', monotype;
+	color:  #485863;
+	font-size: 27px;
+	font-weight: 400;
+}
+
+.left-navbar-entry-selected{
+	padding-left: 70px;
+	background-color: #dcdcdc;
+	color: #000000;
+}
+
+
