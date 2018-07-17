@@ -97,14 +97,6 @@
     border-color: #32424e;
 }
 
-.main-img-container:hover > *{
-    width: 500px;
-}
-
-.enlarge{
-    transition: width 2s, height 4s;
-}
-
 .main-img {
     display: block;
     margin: 75px auto;
