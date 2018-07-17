@@ -8,6 +8,7 @@
 	margin: 25px auto;
 	padding: 30px 100px;
 	background-color: #ffffff;
+	box-sizing: border-box;
 }
 
 .header {
@@ -47,9 +48,10 @@
 	color:  #ffffff;
 	font-size: 24px;
 	font-weight: 400;
+	text-transform: capitalize;
 }
 
-.top-navbar-entry-selected{
+.top-navbar-entry:hover{
 	background-color:  #222f3a;
 	border-style: none solid;
 	border-color: #818181;
@@ -57,6 +59,8 @@
 }
 
 .left-navbar{
+	display: inline-block;
+	vertical-align: top;
 	margin-bottom: 26px;
 	margin-right: 26px;
 	width: 344px;
@@ -73,12 +77,22 @@
 	color:  #485863;
 	font-size: 27px;
 	font-weight: 400;
+	text-transform: capitalize;
 }
 
-.left-navbar-entry-selected{
+.left-navbar-entry:hover{
 	padding-left: 70px;
 	background-color: #dcdcdc;
 	color: #000000;
 }
 
+.main-zone{
+	display: inline-block;
+	margin-right: 26px;
+	width: 885px;
+}
 
+.main-img-container{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #32424e;}
