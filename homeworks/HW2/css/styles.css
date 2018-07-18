@@ -40,7 +40,6 @@
 
 .top-navbar-navpad {
     display: inline-block;
-    padding: 20px;
     border-style: solid;
     border-color: transparent;
     border-width: 0px 1px;
@@ -52,6 +51,8 @@
 }
 
 .top-navbar-link {
+    display: inline-block;
+    padding: 20px;
     font-family: 'Myriad Pro', monospace;
     color: #ffffff;
     font-size: 24px;
