@@ -79,22 +79,23 @@
 }
 
 .left-navbar-navpad {
-    padding: 21px 44px;
-}
-
-.left-navbar-navpad: hover {
-    padding-left: 70px;
-    background-color: #dcdcdc;
-    color: #000000;
 }
 
 .left-navbar-link {
+    display: block;
+    padding: 24px 44px;
     font-family: 'Myriad Pro', monospace;
     color: #485863;
     font-size: 27px;
     font-weight: 400;
     text-transform: capitalize;
     text-decoration: none;
+}
+
+.left-navbar-link:hover {
+    padding-left: 70px;
+    background-color: #dcdcdc;
+    color: #000000;
 }
 
 .main-zone {
@@ -139,7 +140,7 @@
 }
 
 .footer-navbar {
-    padding: 0 30px;
+    padding: 0 44px;
     height: 69px;
     background-color: #b5b8bb;
     list-style: none;
