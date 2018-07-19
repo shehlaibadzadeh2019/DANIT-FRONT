@@ -1,4 +1,88 @@
 * {
     padding: 0px;
     margin: 0px;
+    background-color: #271206;
+}
+
+.document {
+	background-image: url('../img/background.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.header {
+	margin: 50px auto;
+	width: 1065px;
+	height: 45px;
+}
+
+.logo-img {
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+	width: 46px;
+	height: 44px;
+}
+
+.general-text {
+	font-family: Verdana, sans-serif;
+	color:  #ffffff;
+	font-weight: 700;
+}
+
+.top-logo-text {
+	float: left;
+	font-size: 22px;
+}
+
+.top-logo-text-bottomline {
+	font-size: 13px;
+}
+
+.top-contacts { 
+	float: right;
+	font-family: Verdana;
+	color:  #ffffff;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 21px;
+}
+
+.main {
+	width: 1065px;
+	margin: 0 auto;
+}
+
+.clearfix::after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.img-container {
+	display: inline-block;
+	float: left;
+	width: 311px;
+	height: 205px;
+	border-style: solid;
+	border-width: 2px;
+	border-color:  #000000;
+	box-shadow: 0px 17px 24px 0px #000000; /* x y blur spread color */
+	background-color:  #ffffff;
+	box-sizing: border-box;
+}
+
+.tour-name {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 21px;
+}
+
+.footer {
+	width: 1065px;
+	margin: 60px auto 20px;
+	font-size: 12px;
+	font-weight: 400;
+	text-align: center;
 }
