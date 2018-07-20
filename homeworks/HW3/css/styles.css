@@ -11,13 +11,14 @@
 
 .header {
 	margin: 50px auto 20px;
-	width: 1065px;
+	width: 1063px;
 	height: 44px;
 }
 
 .logo-img {
+	display: block;
 	float: left;
-	margin-right: 15px;
+	padding-right: 15px;
 	width: 46px;
 }
 
@@ -63,7 +64,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 auto;
-	width: 1065px;
+	width: 1063px;
 	justify-content: space-between;
 	align-content: space-between;
 }
@@ -75,27 +76,31 @@
 }
 
 .img-container {
+    text-align: center;
 	margin: 30px 0;
-	width: 311px;
+	padding: 1px;
+    background: linear-gradient(white, black);
 }
 
 .tour-img {
-	border-style: solid;
-	border-width: 2px;
-	border-color:  #000000;
+	width: 307px;
+	height: 200px;
 	box-shadow: 0px 17px 24px 0px #000000; /* x y blur spread color */
-	box-sizing: border-box;
 }
 
 .tour-name {
+	padding-top: 30px;
+	margin-top: -30px;
 	text-align: center;
+	height: 18px;
 	font-size: 18px;
 	font-weight: 400;
+	box-sizing: border-box;
 	text-transform: capitalize;
 }
 
 .footer {
-	width: 1065px;
+	width: 1063px;
 	margin: 20px auto;
 	font-size: 12px;
 	font-weight: 400;
