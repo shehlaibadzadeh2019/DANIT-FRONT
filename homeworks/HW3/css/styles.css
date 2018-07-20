@@ -1,7 +1,6 @@
 * {
     padding: 0px;
     margin: 0px;
-    background-color: #271206;
 }
 
 .document {
@@ -11,46 +10,62 @@
 }
 
 .header {
-	margin: 50px auto;
+	margin: 50px auto 20px;
 	width: 1065px;
-	height: 45px;
+	height: 44px;
 }
 
 .logo-img {
 	float: left;
-	display: inline-block;
 	margin-right: 15px;
 	width: 46px;
-	height: 44px;
 }
 
 .general-text {
-	font-family: Verdana, sans-serif;
+	font-family: 'Verdana', sans-serif;
 	color:  #ffffff;
 	font-weight: 700;
 }
 
-.top-logo-text {
+.logo-text-flex{ 
 	float: left;
-	font-size: 22px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 44px;
+}
+
+.top-logo-text {
+	font-size: 29px;
+	line-height: 29px;
+	margin: -1px 0;
+	text-transform: uppercase;
 }
 
 .top-logo-text-bottomline {
-	font-size: 13px;
+	font-size: 18px;
+	line-height: 18px;
+	margin: -1px 0;
+	text-transform: uppercase;
 }
 
 .top-contacts { 
 	float: right;
+	text-align: right;
 	font-family: Verdana;
 	color:  #ffffff;
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: 400;
 	line-height: 21px;
 }
 
 .main {
-	width: 1065px;
+	display: flex;
+	flex-wrap: wrap;
 	margin: 0 auto;
+	width: 1065px;
+	justify-content: space-between;
+	align-content: space-between;
 }
 
 .clearfix::after {
@@ -60,15 +75,15 @@
 }
 
 .img-container {
-	display: inline-block;
-	float: left;
+	margin: 30px 0;
 	width: 311px;
-	height: 205px;
+}
+
+.tour-img {
 	border-style: solid;
 	border-width: 2px;
 	border-color:  #000000;
 	box-shadow: 0px 17px 24px 0px #000000; /* x y blur spread color */
-	background-color:  #ffffff;
 	box-sizing: border-box;
 }
 
@@ -76,12 +91,12 @@
 	text-align: center;
 	font-size: 18px;
 	font-weight: 400;
-	line-height: 21px;
+	text-transform: capitalize;
 }
 
 .footer {
 	width: 1065px;
-	margin: 60px auto 20px;
+	margin: 20px auto;
 	font-size: 12px;
 	font-weight: 400;
 	text-align: center;
