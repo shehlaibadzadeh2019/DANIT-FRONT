@@ -1,0 +1,93 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.header {
+    margin: 0 auto;
+    padding-top: 531px;
+    padding-bottom: 145px;
+    width: 1600px;
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-company-name {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.company-description {
+    margin-bottom: 28px;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: left;
+}
+
+.company-slogan {
+    display: inline-block;
+    padding: 49px 43px 41px 30px;
+    font-family: 'Montserrat', sans-serif;
+    color:  #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 54px;
+    font-weight: 700;
+    border: 1px solid;  
+    text-transform: uppercase;
+}
+
+.orange {
+    color:  #f1ad1d;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.body-background {
+    background-image: url(../img/bg-dotted.png);
+    background-position: center;
+}
+
+.about {
+    margin: 0 auto;
+    padding-top: 72px;
+    width: 1600px;
+}
+
+.headline {
+    margin-bottom: 35px;
+    font-family: 'Montserrat', sans-serif;
+    color:  #333333;
+    font-size: 22px;/* Approximation due to font substitution */
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.general-text {
+    margin-bottom: 52px;
+    font-family: 'Lato', sans-serif;
+    color:  #4d4943;
+    font-size: 17px;
+}
+
+.orange-line::after {
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 52px auto 30px;
+    content: ""; 
+    background-color: #f1ad1d;
+}

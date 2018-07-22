@@ -20,14 +20,12 @@
     font-family: 'Myriad Pro', monospace;
     color: #000000;
     font-size: 80px;
-    font-weight: 400;
 }
 
 .headline-blue {
     font-family: 'Myriad Pro', monospace;
     color: #4bcaff;
     font-size: 80px;
-    font-weight: 400;
     text-align: center;
 }
 
@@ -56,13 +54,12 @@
     font-family: 'Myriad Pro', monospace;
     color: #ffffff;
     font-size: 24px;
-    font-weight: 400;
     text-transform: capitalize;
-    text-decoration: none;    
+    text-decoration: none;
 }
 
 .no-transform-text {
-    text-transform: none;   
+    text-transform: none;
 }
 
 .left-navbar {
@@ -78,8 +75,7 @@
     box-sizing: border-box;
 }
 
-.left-navbar-navpad {
-}
+.left-navbar-navpad {}
 
 .left-navbar-link {
     display: block;
@@ -87,7 +83,6 @@
     font-family: 'Myriad Pro', monospace;
     color: #485863;
     font-size: 27px;
-    font-weight: 400;
     text-transform: capitalize;
     text-decoration: none;
 }
@@ -112,7 +107,7 @@
 }
 
 .main-img-container:hover > img {
-	transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .main-img {
@@ -131,7 +126,6 @@
     font-family: 'Myriad Pro', monospace;
     color: #2c2b2b;
     font-size: 18px;
-    font-weight: 400;
     line-height: 24px;
 }
 
@@ -156,13 +150,12 @@
     font-family: 'Myriad Pro', monospace;
     color: #0c1927;
     font-size: 28px;
-    font-weight: 400;
     text-transform: capitalize;
-    text-decoration: none;    
+    text-decoration: none;
 }
 
 .footer-navbar-link:hover {
-    color:  #3181a6;
+    color: #3181a6;
     text-decoration: underline;
 }
 
@@ -171,8 +164,7 @@
     text-align: right;
     margin-top: 20px;
     font-family: 'Myriad Pro', monospace;
-    color:  #010000;
+    color: #010000;
     font-size: 24px;
-    font-weight: 400;
     text-transform: capitalize;
 }
