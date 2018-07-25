@@ -152,4 +152,47 @@
     text-transform: uppercase;
 }
 
+.menulink {
+    font-family: 'Lato', sans-serif;
+    color:  #3d3d3d;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
 
+.menulink:hover {
+    color:  #f1ad1d;
+}
+
+.menu {
+    margin: 0 auto;
+    width: 1170px;
+    list-style: none;
+    text-align: left;
+}
+
+.menu::after {
+    display: block;
+    height: 3px;
+    margin: 23px 0 126px;
+    content: ""; 
+    background-color: #f1ad1d;
+}
+
+.menu-element {
+    display: inline-block;
+    margin-left: 48px;
+    margin-right: 15px;
+}
+
+.menulogo {
+    margin-right: 195px;
+}
+
+.award-img {
+    margin-bottom: 100px;
+}
+
+.menu-arrow {
+    margin-left: 3px;
+}
