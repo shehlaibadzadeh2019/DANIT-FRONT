@@ -95,6 +95,10 @@
 	margin-top: 0px;
 }
 
+.tour-container:hover .tour-name{
+    color: #f3651d;
+}
+
 .tour-img {
 	display: block;
     width: 307px;
