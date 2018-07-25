@@ -81,13 +81,22 @@
     display: block;
 }
 
-.img-container {
-    text-align: center;
+.tour-container {
     margin-bottom: 58px;
 }
 
-.tour-img {
+.img-container {
+    position: relative;
+    overflow: hidden;
     margin-bottom: 20px;
+}
+
+.img-container:hover .tour-price-tag{
+	margin-top: 0px;
+}
+
+.tour-img {
+	display: block;
     width: 307px;
     height: 200px;
     box-shadow: 0px 17px 24px 0px #000000;    /* x y blur spread color */
@@ -96,6 +105,48 @@
     border-color: transparent;
     border-image: linear-gradient(#ffffff, #000000);
     border-image-slice: 2;
+}
+
+.tour-price-tag{
+	position: absolute;
+	margin-top: 65px;
+	top: 139px;
+	width: 312px;
+	height: 63px;
+	padding: 16px 18px 0 21px;
+	text-align: left;
+	background-color: rgb(242, 101, 34);
+	box-sizing: border-box;
+	transition: 0.5s;
+}
+
+.from-tag {
+	float: left;
+	font-size: 10px;
+	line-height: 10px;
+	font-weight: 400;
+	margin-bottom: 6px;
+}
+
+.price-number {
+	clear: left;
+	float: left;
+	margin-top: -1px;
+	line-height: 20px;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.view-details-link {
+	float: right;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: capitalize;
+	text-decoration: none;
+}
+
+.corner-braket {
+	margin-left: 15px;
 }
 
 .tour-name {
