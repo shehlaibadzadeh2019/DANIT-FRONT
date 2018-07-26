@@ -24,9 +24,10 @@
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
     font-size: 48px;
+    line-height: 48px;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 
 .company-description {
@@ -40,12 +41,15 @@
 .company-slogan {
     display: inline-block;
     padding: 49px 43px 41px 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid;  
+}
+
+.company-slogan-text {
     font-family: 'Montserrat', sans-serif;
     color:  #ffffff;
-    background-color: rgba(0, 0, 0, 0.3);
     font-size: 54px;
     font-weight: 700;
-    border: 1px solid;  
     text-transform: uppercase;
 }
 
@@ -62,9 +66,9 @@
     background-position: center;
 }
 
-.about {
+.general-section {
     margin: 0 auto;
-    padding-top: 72px;
+    padding: 72px 0 124px;
     width: 1600px;
 }
 
@@ -113,8 +117,6 @@
     margin: 0 auto;
     width: 600px;
 }
-
-
 
 .directions-container {
     margin-bottom: 33px;
@@ -195,4 +197,48 @@
 
 .menu-arrow {
     margin-left: 3px;
+}
+
+.orange-button {
+    padding: 20px 28px 19px;
+    width: 176px;
+    height: 51px;
+    box-sizing: border-box;
+    background-color: #f1ad1d;
+}
+
+.button-link {
+    text-transform: capitalize;
+    font-family: 'Lato', sans-serif;
+    color:  #ffffff;
+    font-size: 13px;
+    font-weight: 700;   
+    text-decoration: none;
+}
+
+.slogan-area {
+    width: 1600px;
+    height: 380px;
+    margin: 0 auto;
+    background-image: url(../img/bg-slogan.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+
+
+
+.white {
+    color: #ffffff;
+}
+
+.slogan-text {
+    display: inline-block;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.span {
+    margin-right: 51px;
 }
