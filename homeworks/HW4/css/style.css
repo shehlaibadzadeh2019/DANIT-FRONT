@@ -1,0 +1,36 @@
+.bg-ic_caledar {
+    width: 19px; height: 19px;
+    background: url('../img/top_menu_sprites') -10px -10px;
+}
+
+.bg-ic_caledar_hover {
+    width: 19px; height: 19px;
+    background: url('../img/top_menu_sprites') -49px -10px;
+}
+
+.bg-ic_forum {
+    width: 28px; height: 20px;
+    background: url('../img/top_menu_sprites') -168px -10px;
+}
+
+
+.bg-ic_forum_hover {
+    width: 28px; height: 20px;
+    background: url('../img/top_menu_sprites') -216px -10px;
+}
+
+
+.bg-ic_journey {
+    width: 20px; height: 20px;
+    background: url('../img/top_menu_sprites') -88px -10px;
+}
+
+.bg-ic_journey_hover {
+    width: 20px; height: 20px;
+    background: url('../img/top_menu_sprites') -128px -10px;
+}
+
+.bodybg {
+    background-image: url(../img/bg.jpg); 
+    background-size: cover; 
+}
