@@ -26,14 +26,13 @@
     text-align: center;
 }
 
-.orange-line::after {
+.orange-line-port::after {
     content: "";
     background-color: #f1ad1d;
     display: block;
     width: 60px;
     height: 3px;
-    margin: 0 auto;
-    margin-top: 52px;
+    margin: 25px auto;
 }
 
 .img-responsive {
@@ -216,11 +215,12 @@ margin-bottom: 126px;
 }
 
 .slogan1 {
-   background-image: url(../img/slogan1-background.jpg);
-    background-repeat: no-repeat;
+   background-image: url(../img/bg-slogan.jpg);
     background-size: cover;
+    background-position: center;
     padding-bottom: 150px;
     padding-top: 150px;
+    background-attachment: fixed;
 }
 
 .slogan-title {
@@ -456,4 +456,83 @@ border: 1px solid #cccccc;
 
 .body-cell-3select:nth-child(3) {
     box-shadow: 3px 0px 1px 0px #c7c7c7;
+}
+
+.portfolio-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 45px;
+}
+
+.portfolio-button {
+    display: inline-block;
+    margin-right: 16px;
+    padding: 15px 40px;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px #111111 solid;
+    font-family: 'Lato', sans-serif;
+    color:  #111111;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.portfolio {
+    padding-top: 128px;
+    margin-bottom: 80px;
+}
+
+.photo-galerie {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+
+.port-photo {
+    display: block;
+    margin-bottom: 15px;
+    width: 281px;
+    height: 271px;
+}
+
+.protfolio-text-block {
+    margin-bottom: 15px;
+    padding: 25px;
+    text-align: center;
+    width: 281px;
+    height: 271px;
+    border: 1px solid #000000;
+    box-sizing: border-box;  
+}
+
+.portfolio-header {
+    font-family: 'Lato', sans-serif;
+    color:  #111111;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.main-text {
+    font-family: 'Lato', sans-serif;
+    color: #5b5b5b;
+    font-size: 14px; 
+    font-weight: 300;
+    margin-bottom: 27px;
+}
+
+.orange-button {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 15px 27px;
+    background-color: #f1ad1d;
 }
