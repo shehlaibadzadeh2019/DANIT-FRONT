@@ -1,36 +1,106 @@
-.bg-ic_caledar {
-    width: 19px; height: 19px;
-    background: url('../img/top_menu_sprites') -10px -10px;
+* {
+    margin: 0px 0px;
+    padding: 0px 0px;
 }
 
-.bg-ic_caledar_hover {
+.general-text {
+    font-family: 'Verdana', sans-serif;
+    color:  #ffffff;
+    font-size: 14px;
+}
+
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.inline-container {
+    display: inline-block;
+}
+
+.vertical-divider::before {
+    display: inline-block;
+    margin: 0px 25px;
+    content: "";
+    height: 19px;
+    width: 1px;
+    background-color: #302e2c;
+    transform: translateY(24%);
+}
+
+.bg-ic_caledar {
     width: 19px; height: 19px;
-    background: url('../img/top_menu_sprites') -49px -10px;
+    background: url('../img/top_menu_sprites.png') -10px -10px;
+}
+
+.bg-ic_caledar:hover {
+    width: 19px; height: 19px;
+    background: url('../img/top_menu_sprites.png') -49px -10px;
 }
 
 .bg-ic_forum {
     width: 28px; height: 20px;
-    background: url('../img/top_menu_sprites') -168px -10px;
+    background: url('../img/top_menu_sprites.png') -168px -10px;
 }
 
 
-.bg-ic_forum_hover {
+.bg-ic_forum:hover {
     width: 28px; height: 20px;
-    background: url('../img/top_menu_sprites') -216px -10px;
+    background: url('../img/top_menu_sprites.png') -216px -10px;
 }
 
 
 .bg-ic_journey {
     width: 20px; height: 20px;
-    background: url('../img/top_menu_sprites') -88px -10px;
+    background: url('../img/top_menu_sprites.png') -88px -10px;
 }
 
-.bg-ic_journey_hover {
+.bg-ic_journey:hover {
     width: 20px; height: 20px;
-    background: url('../img/top_menu_sprites') -128px -10px;
+    background: url('../img/top_menu_sprites.png') -128px -10px;
 }
 
 .bodybg {
     background-image: url(../img/bg.jpg); 
     background-size: cover; 
+}
+
+.header {
+    padding: 20px 0;
+    background-color:  rgba(0, 0, 0, 0.41);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-logo {
+    margin-left: 81px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+
+.green-link {
+    color:  #3cb878;
+    text-decoration: none;
+}
+
+
+
+
+.header-right-column {
+    margin-right: 75px;
+    float: right;
+}
+
+.header-mininavbar-link {
+    margin-left: 28px;
+}
+
+
+
+.header-right-column-logsign {
+        transform: translateY(-15%);
 }

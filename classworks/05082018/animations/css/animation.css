@@ -1,0 +1,41 @@
+.menu-top-item {
+    display: inline-block;
+}
+
+.menu-top {
+    list-style: none;
+    text-align: center;
+}
+
+.menu-top-link {
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 0 -1px;
+    font-size: 15px;
+    color: darkgreen;
+    width: 100px;
+}
+
+@keyframes pulse {
+    from {
+        background-color: white;
+        font-size: 15px;
+    }
+    to {
+        background-color: darkgreen;
+        color: white;
+        font-size: 20px;
+        padding: 5px 25px;
+        width: 150px;
+    }
+}
+
+.menu-top-link:hover {
+
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+/*    animation-iteration-count: infinite;*/
+    animation-direction:alternate;
+    animation-fill-mode: forwards;
+}
