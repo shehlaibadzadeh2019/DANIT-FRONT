@@ -3,7 +3,7 @@
     padding: 0px 0px;
 }
 
-.general-text {
+.general-font {
     font-family: 'Verdana', sans-serif;
     color:  #ffffff;
     font-size: 14px;
@@ -17,16 +17,6 @@
 
 .inline-container {
     display: inline-block;
-}
-
-.vertical-divider::before {
-    display: inline-block;
-    margin: 0px 25px;
-    content: "";
-    height: 19px;
-    width: 1px;
-    background-color: #302e2c;
-    transform: translateY(24%);
 }
 
 .bg-ic_caledar {
@@ -83,6 +73,7 @@
 .green-link {
     color:  #3cb878;
     text-decoration: none;
+    text-transform: capitalize;
 }
 
 .header-right-column {
@@ -98,6 +89,16 @@
     transform: translateY(-15%);
 }
 
+.header-right-column-logsign::before {
+    display: inline-block;
+    margin: 0px 25px;
+    content: "";
+    height: 19px;
+    width: 1px;
+    background-color: #302e2c;
+    transform: translateY(24%);
+}
+
 .main-frame {
     display: flex;
     height: 93vh;
@@ -107,13 +108,18 @@
 
 .logsign-form {
     position: relative;
-    height: 300px;
+    width: 444px;
     display: inline-block;
-    padding: 29px 61px; 32px;
-    box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.52);
+    padding: 29px 61px;
     border-radius: 10px;
     box-sizing: border-box;
     background-color: #ffffff;
+    font-size: 0px;
+
+}
+
+.logsign-form-links-container {
+    margin-bottom: 17px;
 }
 
 .logsign-form-link-left-selected {
@@ -144,14 +150,18 @@
     text-decoration: none;
 }
 
+.logsign-form-buttons-container {
+    margin-bottom: 33px;
+}
+
 .logsign-form-smbutton {
     display: inline-block;
+    margin: 0 2px;
     border-radius: 3px;
     width: 157px;
     height: 46px;
     text-align: center;
-    padding-top: calc(46px/2);
-    box-sizing: border-box;
+    vertical-align: top;
 }
 
 .button-blue {
@@ -164,16 +174,135 @@
 
 .smbutton-logo-container {
     display: inline-block;
+    position: relative;
+    top: 50%;
     width: 30%;
-    transform: translateY(-50%)
+    transform: translateY(-50%);
+    font-size: 0px;
 }
 
-.smbutton-text {
+.smbutton-text-container::before {
     display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    height: 28px;
+    width: 1px;
+    background-color: #000000;
+    opacity: 0.1;
+}
+
+.smbutton-text-container {
+    display: inline-block;
+    position: relative;
+    top: 50%;
     width: 70%;
-    font-family: 'Verdana', sans-serif;
-    color: #ffffff;
     font-size: 16px;
-    transform: translateY(-75%);
+    transform: translateY(-50%);
     text-transform: capitalize;
+    vertical-align: top;
+}
+
+.sing-up-form-container {
+    text-align: center;
+}
+
+.sing-up-form-header-container {
+    display: flex;
+    margin-bottom: 19px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sing-up-form-header {
+    color: #848484;
+    text-align: center;
+    margin: 0 18px;
+}
+
+.horizontal-divider {
+    width: 135px;
+    height: 1px;
+    content: "";
+    background-color: #eaeaea;
+}
+
+.sing-up-form-textfield {
+    margin-bottom: 17px;
+    padding: 0 19px;
+    border-radius: 3px;
+    border: 1px solid #eaeaea;
+    width: 322px;
+    height: 46px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.sing-up-form-textfield:focus {
+    color: #434343;
+    box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.21);
+}
+
+.sing-up-form-textfield::placeholder {
+    color: #bebebe;
+    text-transform: capitalize;
+}
+
+.agree-terms-container {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.agree-terms-text-container {
+    display: inline-block;
+    color: #434343;
+}
+
+/* Customize the label (the container) */
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Create a custom checkbox */
+.sing-up-form-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 3px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.sing-up-form-checkbox:after {
+  display: none;
+  content: "";
+  position: absolute;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .sing-up-form-checkbox:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .sing-up-form-checkbox:after {
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  border: solid #3cb878;
+  border-width: 0 3px 3px 0;
+  transform: translateY(-50%) translateX(-50%) rotate(45deg);
+
 }
