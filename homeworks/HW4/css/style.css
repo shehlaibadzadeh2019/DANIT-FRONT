@@ -314,7 +314,7 @@
     height: 10px;
     border: solid #3cb878;
     border-width: 0 3px 3px 0;
-    transform: translateY(-50%) translateX(-50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .sing-up-form-submit {
