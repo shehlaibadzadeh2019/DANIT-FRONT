@@ -136,7 +136,6 @@
     background-color: #ffffff;
     font-size: 0px;
     align-self: center;
-
 }
 
 .logsign-form-links-container {
@@ -270,14 +269,12 @@
 }
 
 /* Customize the label (the container) */
-
 .checkbox-container {
     position: relative;
     margin-right: 10px;
 }
 
 /* Hide the browser's default checkbox */
-
 .checkbox-container input {
     position: absolute;
     opacity: 0;
@@ -293,7 +290,6 @@
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-
 .sing-up-form-checkbox:after {
     display: none;
     content: "";
@@ -301,13 +297,12 @@
 }
 
 /* Show the checkmark when checked */
-
 .checkbox-container input:checked ~ .sing-up-form-checkbox:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.checkbox-container .sing-up-form-checkbox:after {
+.sing-up-form-checkbox:after {
     left: 50%;
     top: 50%;
     width: 5px;
