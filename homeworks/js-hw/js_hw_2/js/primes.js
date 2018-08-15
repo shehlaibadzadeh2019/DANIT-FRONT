@@ -1,4 +1,3 @@
-
 // public class SimpleV4 {
 //     //public int count = 0;
 //     private final int max;
@@ -52,18 +51,63 @@
 //     }
 // }
 
-//import { promptUsrInput } from '../js-utils/valudate_user_prompt.js';
-//Components.utils.import("resource://../js-utils/valudate_user_prompt.js");
-
-
-function isValidPair(min, max){
-    return getNaturalNumberOrFalse (min) && getNaturalNumberOrFalse(max) && isMinMaxOrder(min, max);
-}
-
 let min, max;
+let simples = [1, 2, 3];
+let index = 0;
 
-while (!isValidPair(min, max)){
-	[min, max] = promptNUsrInputs(2);	
+function isValidPair(min, max) {
+    return getNaturalNumberOrFalse(min) && getNaturalNumberOrFalse(max) && isMinMaxOrder(min, max);
 }
 
-console.log (min, max);
+function restIsZero(orig, idx) {
+    return (orig % this.simples[idx]) == 0;
+}
+
+function toBeAnalyzed(idx, max) {
+    return this.simples[idx] <= max;
+}
+
+function isSimple(num) {
+    if (num <= 3) return false;
+    let maxToAnalyze = Math.floor(Math.sqrt(num));
+    for (let idx = 0; idx < this.index; idx++) {
+        if (toBeAnalyzed(idx, maxToAnalyze) && restIsZero(num, idx)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function array() {
+    for (let i = 1; i <= this.max; i++) {
+        if (isSimple(i)) {
+            this.simples[index++] = i;
+        }
+    }
+    let min_index = 0;
+    if (this.min > 1) {
+        for (let i = 0; i < this.index; i++) {
+            if (this.simples[i] >= this.min) {
+                min_index = i;
+                break;
+            }
+        }
+    }
+    return this.simples.copyWithin(min_index, index);
+}
+
+function printAllSimples(min, max) {
+    for (let i = min; i <= max; i++) {
+        if (isSimple(i)) {
+            console.log(i);
+        }
+    }
+}
+
+while (!isValidPair(this.min, this.max)) {
+	[this.min, this.max] = promptNUsrInputs(2);
+}
+
+array();
+
+printAllSimples(this.min, this.max);

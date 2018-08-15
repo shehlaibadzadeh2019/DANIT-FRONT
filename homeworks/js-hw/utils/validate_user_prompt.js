@@ -5,7 +5,8 @@ function promptSingleUsrInput(invitation){
         return usrInput;
         }else {
             console.error("Wrong number format! Try again!");
-            usrInput = promptSingleUsrInput(invitation);  
+            usrInput = promptSingleUsrInput(invitation);
+            return usrInput;
         } 
     }
     // console.error("User canceled!");
