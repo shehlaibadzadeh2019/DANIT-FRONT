@@ -55,10 +55,15 @@
 //import { promptUsrInput } from '../js-utils/valudate_user_prompt.js';
 //Components.utils.import("resource://../js-utils/valudate_user_prompt.js");
 
-let min;
-let max;
-let usrInput = promptNUsrInputs(2);
-if (isValidPair (usrInput)) {
 
+function isValidPair(min, max){
+    return getNaturalNumberOrFalse (min) && getNaturalNumberOrFalse(max) && isMinMaxOrder(min, max);
 }
 
+let min, max;
+
+while (!isValidPair(min, max)){
+	[min, max] = promptNUsrInputs(2);	
+}
+
+console.log (min, max);
