@@ -26,10 +26,26 @@ function isMinMaxOrder(min, max){
     return min < max;
 }
 
-function promptNUsrInputs(n) {
+function promptNUsrInputs(invitation, numberOfOperands) {
     let res = [];
-    for (let i = 0; i < n; i++){ 
-        res.push(promptSingleUsrInput("Please input operand " + (i + 1) + " of " + n + " operands:" ));
+    for (let i = 0; i < numberOfOperands; i++){ 
+
+        res.push(promptSingleUsrInput(collectInvitation(invitation, numberOfOperands, i));
     }
     return res;
+}
+
+function collectInvitation (invitation, numberOfOperands, iteration){
+    let newLine;
+    let lastLine = invitation.substring(invitation.length - );
+
+    if (iteration > 5){
+        invitation = invitation.
+    }
+
+    return invitation += (i > 0 ? " - ok" : "") + 
+        "\nPlease input operand " + 
+        (i + 1) + " of " + 
+        numberOfOperands + 
+        " operands:";
 }
