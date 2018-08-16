@@ -3,6 +3,14 @@
 let Simple = {
     simples: [],
     index: 0,
+    
+    construct: function (min, max) {
+        let simple = Object.create(Simple);
+        simple.min = min;
+        simple.max = max;
+        simple.array();
+        return simple;
+    },
 
     restIsZero: function (orig, idx) {
         return (orig % this.simples[idx]) == 0;
@@ -13,8 +21,8 @@ let Simple = {
     },
 
     isSimple: function (num) {
-        if (num==1) return false;
-        if (num==2) return true;
+        if (num == 1) return false;
+        if (num == 2) return true;
         let maxToAnalyze = Math.floor(Math.sqrt(num));
         for (let idx = 0; idx < this.index; idx++) {
             if (this.toBeAnalyzed(idx, maxToAnalyze) && this.restIsZero(num, idx)) {
@@ -40,43 +48,29 @@ let Simple = {
             }
         }
         return this.simples.slice(min_index, this.index);
+    },
+
+    toString: function () {
+        return this.simples.toString();
     }
 }
 
-function isValidPair (min, max) {
-    return getNaturalNumberOrFalse(min) && 
-    getNaturalNumberOrFalse(max) && 
-    isMinMaxOrder(min, max);
+function isValidPair(min, max) {
+    return getNaturalNumberOrFalse(min) &&
+        getNaturalNumberOrFalse(max) &&
+        isMinMaxOrder(min, max);
 }
 
-function  init (min, max){
-    let simple = Object.create(Simple);
-    simple.min = min;
-    simple.max = max;
-    simple.array();
-    return simple;
-};
-
-function printAllSimples (start, end) {
-    if (start < simples[0] || end > simples [simples.length - 1]){
-
-    }
-    for (let i = start; i <= end; i++) {
-        if (isSimple(i)) {
-            console.log(i);
-        }
-    }
-}
-
-let m, n;
 let askedTimes = 0;
 let invitation = "The 1st operand must be less than the 2nd one!";
+
+let m, n;
 while (!isValidPair(m, n)) {
-    if (askedTimes++ > 0){
+    if (askedTimes++ > 0) {
         console.error(invitation + " Please try again...");
     }
     [m, n] = promptNUsrInputs(invitation, 2);
 }
 
-init(m, n).array().forEach(e => console.log(e));
-
+console.log(Simple.construct(m, n).toString());
+alert("Please see result in console...");

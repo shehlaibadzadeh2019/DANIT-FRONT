@@ -1,51 +1,51 @@
-function promptSingleUsrInput(invitation){
+'use strict';
+
+function promptSingleUsrInput(invitation) {
     let usrInput = prompt(invitation);
-    if (usrInput != null){
-       if (usrInput = getNaturalNumberOrFalse(usrInput)){
-        return usrInput;
-        }else {
+    if (usrInput != null) {
+        if (usrInput = getNaturalNumberOrFalse(usrInput)) {
+            return usrInput;
+        } else {
             console.error("Wrong number format! Try again!");
             usrInput = promptSingleUsrInput(invitation);
             return usrInput;
-        } 
+        }
     }
-    // console.error("User canceled!");
-    // return false;
     throw new Error("User canceled!");
 }
 
 
-function getNaturalNumberOrFalse(usrInput){  
-    if ((usrInput = Number(usrInput)) && Number.isInteger(usrInput) && usrInput >= 1){ 
-            return usrInput;
-    } 
+function getNaturalNumberOrFalse(usrInput) {
+    if ((usrInput = Number(usrInput)) && Number.isInteger(usrInput) && usrInput >= 1) {
+        return usrInput;
+    }
     return false;
 }
 
-function isMinMaxOrder(min, max){  
+function isMinMaxOrder(min, max) {
     return min < max;
 }
 
-function promptNUsrInputs(invitation, numberOfOperands) {
+function promptNUsrInputs(invitation = "", numberOfOperands = 1) {
     let res = [];
-    for (let i = 0; i < numberOfOperands; i++){ 
-
-        res.push(promptSingleUsrInput(collectInvitation(invitation, numberOfOperands, i));
+    let usrPrompt;
+    for (let i = 0; i < numberOfOperands; i++) {
+        usrPrompt = promptSingleUsrInput(invitation = buildInvitation(invitation, numberOfOperands, i, usrPrompt));
+        res.push(usrPrompt);
     }
     return res;
 }
 
-function collectInvitation (invitation, numberOfOperands, iteration){
-    let newLine;
-    let lastLine = invitation.substring(invitation.length - );
+function buildInvitation(invitation, numberOfOperands, iteration, lastUsrPrompt) {
+    let endOfLine = invitation ? "\n" : "";
+    lastUsrPrompt = lastUsrPrompt ? " -> {" + lastUsrPrompt + "}" : "";
+    let invitationLines = invitation.split(/\n/);
 
-    if (iteration > 5){
-        invitation = invitation.
+    if (invitationLines.length > 5) {
+        invitationLines.splice(1, invitationLines.length - 4, "...");
     }
 
-    return invitation += (i > 0 ? " - ok" : "") + 
-        "\nPlease input operand " + 
-        (i + 1) + " of " + 
-        numberOfOperands + 
-        " operands:";
+    let newLine = lastUsrPrompt + endOfLine + "Please input operand " + (iteration + 1) +
+        " of " + numberOfOperands + " operands:";
+    return invitationLines.join("\n").concat(newLine);
 }
