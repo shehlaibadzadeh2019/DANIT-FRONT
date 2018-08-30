@@ -3,7 +3,11 @@
 function deepClone(origin, copy = {}) {
     for (let prop in origin) {
         if (origin[prop] != null && typeof (origin[prop]) == "object") {
-            copy[prop] = deepClone(origin[prop]);
+            if (Array.isArray(origin[prop])) {
+                copy[prop] = Array.from(origin[prop]);
+            } else {
+                copy[prop] = deepClone(origin[prop]);
+            }
         } else {
             copy[prop] = origin[prop];
         }
@@ -12,20 +16,32 @@ function deepClone(origin, copy = {}) {
 }
 
 let origin = {
-    a: "1",
-    b: "2",
+    g: 2,
+    h: [[[5]], ['gg']],
     c: {
-        nested: {
-            name: "nested2",
-            cargo: {
-                name: "nested",
+        f: 5,
+        g: [{
+            g: {
+                g: 5,
+                h: 7,
+                g: [1, {
+                    g: {
+                        jl: 5,
+                        kl: null,
+                        dd: new Date(),
+                        lk: undefined,
+                        ff: [],
+                        rm: /.+/
+                    }
+                }]
             }
-        }
+        }]
+    },
+    fn: function () {
+        alert("I'm a function")
     }
 }
 
-let copy = {};
-deepClone(origin, copy);
-console.log(copy);
-let copy2 = deepClone(origin); 
+let copy = deepClone(origin);
+console.log(origin);
 console.log(copy);
