@@ -1,0 +1,170 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.document {
+    margin: 0 auto;
+    padding: 60px 100px 30px;
+    width: 1280px;
+    background-color: #ffffff;
+    font-size: 0;
+}
+
+.header {
+    margin-bottom: 51px;
+}
+
+.headline-black {
+    padding-bottom: 45px;
+    font-family: 'Myriad Pro', monospace;
+    color: #000000;
+    font-size: 80px;
+}
+
+.headline-blue {
+    font-family: 'Myriad Pro', monospace;
+    color: #4bcaff;
+    font-size: 80px;
+    text-align: center;
+}
+
+.top-navbar {
+    text-align: center;
+    height: 69px;
+    background-color: #35444f;
+    list-style: none;
+}
+
+.top-navbar-navpad {
+    display: inline-block;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 0px 1px;
+}
+
+.top-navbar-navpad:hover {
+    background-color: #222f3a;
+    border-color: #818181;
+}
+
+.top-navbar-link {
+    display: inline-block;
+    padding: 20px;
+    font-family: 'Myriad Pro', monospace;
+    color: #ffffff;
+    font-size: 24px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.no-transform-text {
+    text-transform: none;
+}
+
+.left-navbar {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 26px;
+    margin-right: 51px;
+    width: 344px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #32424e;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.left-navbar-navpad {}
+
+.left-navbar-link {
+    display: block;
+    padding: 24px 44px;
+    font-family: 'Myriad Pro', monospace;
+    color: #485863;
+    font-size: 27px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.left-navbar-link:hover {
+    padding-left: 70px;
+    background-color: #dcdcdc;
+    color: #000000;
+}
+
+.main-zone {
+    display: inline-block;
+    width: 884px;
+}
+
+.main-img-container {
+    margin-bottom: 25px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #32424e;
+    overflow: hidden;
+}
+
+.main-img-container:hover > img {
+    transform: scale(1.2);
+}
+
+.main-img {
+    display: block;
+    margin: 75px auto;
+    max-width: 50%;
+    transition: transform 0.5s;
+}
+
+.main-text-container {
+    margin: 25px 35px;
+}
+
+.main-text-paragraph {
+    margin-bottom: 30px;
+    font-family: 'Myriad Pro', monospace;
+    color: #2c2b2b;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.footer {
+    margin-top: 25px;
+}
+
+.footer-navbar {
+    padding: 0 44px;
+    height: 69px;
+    background-color: #b5b8bb;
+    list-style: none;
+}
+
+.footer-navbar-navpad {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+.footer-navbar-link {
+    font-family: 'Myriad Pro', monospace;
+    color: #0c1927;
+    font-size: 28px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.footer-navbar-link:hover {
+    color: #3181a6;
+    text-decoration: underline;
+}
+
+.footer-navbar-copyright {
+    float: right;
+    text-align: right;
+    margin-top: 20px;
+    font-family: 'Myriad Pro', monospace;
+    color: #010000;
+    font-size: 24px;
+    text-transform: capitalize;
+}
