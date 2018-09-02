@@ -1,0 +1,5 @@
+
+    alert (name);
+    alert (newName);
+
+    

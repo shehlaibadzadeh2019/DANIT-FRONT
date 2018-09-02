@@ -1,0 +1,6 @@
+.text-container {
+    border: red dotted 1px;  
+    width: 20%;
+    margin: 10px;  padding: 5px;
+    transition: 1s;
+}

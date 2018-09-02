@@ -1,0 +1,538 @@
+/*
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i,800,800i");
+
+@font-face {
+ font-family: "MyOwnFont";
+ src: url("fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+        url("fonts/OpenSans-Regular-webfont.woff") format("woff");
+}
+*/
+
+.body-background {
+    background-image: url(../img/body-bg.png);
+}
+
+.container {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.orange-text {
+    color: #f1ad1d;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.orange-line-port::after {
+    content: "";
+    background-color: #f1ad1d;
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 25px auto;
+}
+
+.img-responsive {
+    max-width: 100%;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.header {
+    background-image: url(../img/header-bg-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 531px;
+    padding-bottom: 145px;
+}
+
+.header-company-name {
+    font-family: 'MyOwnFont', sans-serif;
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.company-description {
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 28px;
+}
+
+.company-slogan {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 54px;
+    font-weight: 700;
+    border: 2px solid #ffffff;
+    padding: 45px 43px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: 1s;
+    background-color: rgba(0, 0, 0, 0.3);
+    
+}
+
+.company-slogan:hover {
+    opacity: 1;
+}
+
+.about-company {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-description {
+    font-family: 'Lato', sans-serif;
+    color: #4d4943;
+    font-size: 17px;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 57px;
+}
+
+.directions-img {
+    width: 570px;
+    margin-right: 30px;
+    float: left;
+}
+
+.direction-name {
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #333333;
+    padding: 15px 15px;
+    width: 117px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 13px;
+    bottom: 11px;
+    text-transform: capitalize;
+}
+
+.direction-img {
+    position: relative;
+    float: left;
+    width: 270px;
+    margin-bottom: 22px;
+}
+
+.direction-img:nth-child(2n-1) {
+    margin-right: 30px;
+}
+
+.directions-description {
+    float: right;
+    width: 570px;
+}
+
+.direction-description-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+    font-size: 18px;
+    /* Приближение из-за подстановки шрифтов */
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+}
+
+.direction-description-text {
+    font-family: Lato;
+    color: #505050;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    text-align: justify;
+    margin-bottom: 27px;
+}
+
+.direction-description-button {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 20px 27px;
+    background-color: #f1ad1d;
+}
+
+.menu-top-item {
+    display: inline-block;
+    
+}
+
+.menu-top {
+    display: inline-block;
+    float: right;
+    margin-top: 4px;
+}
+.menu-top-link:hover{
+    color:#f1b128;
+}
+
+.menu-top-link {
+    font-family: 'Lato', sans-serif;
+    color:  #3d3d3d;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 31px;
+    margin-right: 31px;
+    
+}
+.big-orange-line::after {
+    content: "";
+    background-color: #f1ad1d;
+    display: block;
+    height: 3px;
+margin-bottom: 126px;
+    margin-top: 22px;
+}
+
+.slogan1 {
+   background-image: url(../img/bg-slogan.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 150px;
+    padding-top: 150px;
+    background-attachment: fixed;
+}
+
+.slogan-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.subscribe {
+    padding-bottom: 150px;
+    padding-top: 150px;
+}
+
+.subscribe-mail {
+border: solid 1px #c7c7c7;
+width: 598px;
+height: 64px;
+font-family: 'Lato',sans-serif;
+color:  #747474;
+font-size: 18px;
+font-style: italic;
+padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.subscribe-button {
+background-color:  #f1ad1d;
+width: 172px;
+height: 64px;
+    box-sizing: border-box;
+font-family: 'Lato',sans-serif;
+color:  #ffffff;
+font-size: 18px;
+font-weight: 700;
+
+}
+
+.subscribe-form {
+    text-align: center;
+}
+
+.contacts {
+    padding-bottom: 150px;
+    padding-top: 150px;
+}
+
+.contacts-title {
+    padding-top: 19px;
+    padding-bottom: 19px;
+    padding-left: 15px;
+    margin-bottom: 23px;
+    background-color:  #333333;
+    width: 66%;
+    font-family: 'Montserrat', sans-serif;
+    color:  #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+.send-msg {
+    width: 572px;
+    float: left;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.send-msg-field {
+    padding: 17px 13px;
+    margin-bottom: 20px;
+    border: 1px solid #929292;
+    font-family: 'Lato', sans-serif;
+    color:  #505050;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.send-msg-input {
+    width: 272px;
+}
+
+.send-msg-input:nth-child(2n) {
+    margin-left: 27px;
+}
+
+.send-smg-text {
+    width: 100%;
+}
+
+.send-smg-button {
+    background-color:  #f1ad1d;
+    margin-right: 24px;
+    width: 118px;
+    height: 43px;
+    font-family: 'Lato', sans-serif;
+    color:  #ffffff;
+    font-size: 14px;
+    font-weight: 900;
+    outline: none;
+    text-transform: uppercase;
+    border: 1px solid #f1ad1d;
+}
+.image-slogan {
+    padding-bottom: 150px;
+    padding-top: 150px;
+    background-image: url(../img/slogan1-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position:center
+}
+
+.text-white {
+    margin: 0 auto;
+    color: #ffffff;
+    width: 573px;
+}
+
+.our-pricing-table {
+    padding-top: 128px;
+}
+
+.t-header {
+    font-family: 'Montserrat', sans-serif;
+    color:  #333333;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+}
+
+.thead {
+    font-family: "Montserrat", sans-serif;
+    color:  #333333;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.price-row {
+    
+}
+
+
+.price-cell {
+    padding: 34px 0;
+    background-color: #303030;
+    font-family: 'Montserrat', sans-serif;
+    color:  #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.price-cell::after {
+    content: "/month";
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+.price-plan-table {
+    margin: 0 auto;
+    width: 1144px;
+    background-color: #f8fcfe;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.price-plan-table * {
+border: 1px solid #cccccc;
+}
+
+.row {
+    width: 286px;
+}
+
+
+
+.t-head-selected {
+    box-shadow: 3px 0px 1px 0px #c7c7c7;
+    color:  #1fdab5;
+}
+
+
+
+.price-plan-name {
+        padding: 21px 0;
+}
+
+.price-cell-selected {
+    background-color:  #1fdab5;
+}
+
+
+
+.cell-padding td {
+    padding-top: 21px;
+    padding-bottom: 16px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 24px;
+    margin-bottom: 28px;
+    padding: 20px 50px;
+    background-color: #303030;
+    font-family: 'Montserrat', sans-serif;
+    color:  #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.button-selected {
+    background-color:  #1fdab5;
+    color: #ffffff;
+}
+
+.footer-cell-selected {
+    box-shadow: 3px 0px 1px 0px #c7c7c7;
+}
+
+.body-cell-3select:nth-child(3) {
+    box-shadow: 3px 0px 1px 0px #c7c7c7;
+}
+
+.portfolio-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 45px;
+}
+
+.portfolio-button {
+    display: inline-block;
+    margin-right: 16px;
+    padding: 15px 40px;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px #111111 solid;
+    font-family: 'Lato', sans-serif;
+    color:  #111111;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.portfolio {
+    padding-top: 128px;
+    margin-bottom: 80px;
+}
+
+.photo-galerie {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+
+.port-photo {
+    display: block;
+    margin-bottom: 15px;
+    width: 281px;
+    height: 271px;
+}
+
+.protfolio-text-block {
+    margin-bottom: 15px;
+    padding: 25px;
+    text-align: center;
+    width: 281px;
+    height: 271px;
+    border: 1px solid #000000;
+    box-sizing: border-box;  
+}
+
+.portfolio-header {
+    font-family: 'Lato', sans-serif;
+    color:  #111111;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.main-text {
+    font-family: 'Lato', sans-serif;
+    color: #5b5b5b;
+    font-size: 14px; 
+    font-weight: 300;
+    margin-bottom: 27px;
+}
+
+.orange-button {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 15px 27px;
+    background-color: #f1ad1d;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(
+            titleCase("hello javASCript")
+        );
+
+        function titleCase(str) {
+            //            return str.replace(new RegExp(/\w+/, "g"), match => match.substring(0, 1).toUpperCase().concat(match.substring(1).toLowerCase()));
+
+            return str.replace(new RegExp(/\w+/, "g"), function(match) {
+                    return match.substring(0, 1).toUpperCase().concat(match.substring(1).toLowerCase());
+                });
+        }
+
+    </script>
+</body>
+
+</html>

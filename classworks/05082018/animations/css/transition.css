@@ -1,0 +1,25 @@
+.menu-top-item {
+    display: inline-block;
+}
+
+.menu-top {
+    list-style: none;
+    text-align: center;
+}
+
+.menu-top-link {
+    padding: 10px 30px;
+    margin: 0 -1px;
+    font-size: 15px;
+    color: darkgreen;
+    transition-duration: 0.75s;
+    transition-timing-function: cubic-bezier(0,1.7,1,-0.81);
+/*    transition: font-size 0.5s, color 0.5s, background-color 0.5s;*/
+}
+
+.menu-top-link:hover {
+    padding: 5px 25px;
+    font-size: 20px;
+    color: white;
+    background-color: green;
+}
