@@ -63,5 +63,3 @@ function calcSoziacSign(birthDate) {
 }
 
 displayAgeAndZodiac(...promptBirthDate().split("."));
-
-//    const zodiacYears = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
