@@ -23,8 +23,9 @@ function calcAge(birthDate) {
         alert("Birthdate must be not latter then current date!");
         birthDate = promptBirthDate();
     }
-    let hasBirthDatePassed = new Date().getMonth() >= birthDate.getMonth() &&
-        new Date().getDate() >= birthDate.getDate();
+    let hasBirthDatePassed = (new Date().getMonth() > birthDate.getMonth()) || 
+        (new Date().getMonth() == birthDate.getMonth() && 
+        new Date().getDate() >= birthDate.getDate());
     return hasBirthDatePassed ? new Date().getFullYear() - birthDate.getFullYear() :
         new Date().getFullYear() - birthDate.getFullYear() - 1;
 }
