@@ -12,28 +12,24 @@ function promptBirthDate() {
     return birthDate;
 }
 
-function calculateAgeAndZodiac(day, month, year) {
+function displayAgeAndZodiac(day, month, year) {
     let birthDate = new Date(year, month - 1, day);
+    alert("Your age is: ".concat(calcAge(birthDate), " years."));
+    alert("Your zodiac sign is: ".concat(calcSoziacSign(birthDate)));
+}
 
+function calcAge(birthDate) {
     if (Date.now() - birthDate.getTime() < 0) {
         alert("Birthdate must be not latter then current date!");
         birthDate = promptBirthDate();
     }
-
-
-
-    alert("Your age is: ".concat(getAge(birthDate), " years."));
-    alert("Your zodiac sign is: ".concat(getSoziacSign(birthDate)));
-}
-
-function getAge(birthDate) {
-    let birthDatePassed = new Date().getMonth() >= birthDate.getMonth() &&
+    let hasBirthDatePassed = new Date().getMonth() >= birthDate.getMonth() &&
         new Date().getDate() >= birthDate.getDate();
-    return birthDatePassed ? new Date().getFullYear() - birthDate.getFullYear() :
+    return hasBirthDatePassed ? new Date().getFullYear() - birthDate.getFullYear() :
         new Date().getFullYear() - birthDate.getFullYear() - 1;
 }
 
-function getSoziacSign(birthDate) {
+function calcSoziacSign(birthDate) {
 
     let Zodiac = function (signName, startPeriod, endPeriod) {
         this.signName = signName;
@@ -43,6 +39,10 @@ function getSoziacSign(birthDate) {
         this.constructor.prototype.isWithingPeriod = function (date) {
             return (date.getMonth() == this.startPeriod.getMonth() && date.getDate() >= this.startPeriod.getDate()) || (date.getMonth() == this.endPeriod.getMonth() && date.getDate() <= this.endPeriod.getDate());
         }
+
+        this.constructor.prototype.toString = function () {
+            return this.signName
+        };
 
     };
 
@@ -59,10 +59,9 @@ function getSoziacSign(birthDate) {
         new Zodiac("Aquarius", "20.01", "18.02"),
         new Zodiac("Pisces", "19.02", "20.03")];
 
-    const zodiacYears = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
-
-
-    return zodiacSignes.filter(el => el.isWithingPeriod(birthDate))[0].signName;
+    return zodiacSignes.find(el => el.isWithingPeriod(birthDate));
 }
 
-calculateAgeAndZodiac(...promptBirthDate().split("."));
+displayAgeAndZodiac(...promptBirthDate().split("."));
+
+//    const zodiacYears = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
