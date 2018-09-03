@@ -36,7 +36,7 @@ function calcSoziacSign(birthDate) {
         this.startPeriod = new Date(1970, startPeriod.split(".")[1] - 1, startPeriod.split(".")[0]);
         this.endPeriod = new Date(1970, endPeriod.split(".")[1] - 1, endPeriod.split(".")[0]);
 
-        this.constructor.prototype.isWithingPeriod = function (date) {
+        this.constructor.prototype.isWithinPeriod = function (date) {
             return (date.getMonth() == this.startPeriod.getMonth() && date.getDate() >= this.startPeriod.getDate()) || (date.getMonth() == this.endPeriod.getMonth() && date.getDate() <= this.endPeriod.getDate());
         }
 
@@ -59,7 +59,7 @@ function calcSoziacSign(birthDate) {
         new Zodiac("Aquarius", "20.01", "18.02"),
         new Zodiac("Pisces", "19.02", "20.03")];
 
-    return zodiacSignes.find(el => el.isWithingPeriod(birthDate));
+    return zodiacSignes.find(el => el.isWithinPeriod(birthDate));
 }
 
 displayAgeAndZodiac(...promptBirthDate().split("."));
