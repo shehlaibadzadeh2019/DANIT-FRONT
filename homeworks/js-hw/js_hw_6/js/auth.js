@@ -34,6 +34,5 @@ user.lastName = "test";
 console.log (user.firstName);
 console.log (user.lastName);
 user.setFirstName("test2")
-user.lastName = "test";
 console.log (user.firstName);
 console.log (user.getFirstName());
