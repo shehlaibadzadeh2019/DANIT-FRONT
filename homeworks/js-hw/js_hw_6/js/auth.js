@@ -1,47 +1,39 @@
 function createNewUser() {
-    
+
     function User() {
-        Object.defineProperty(this, "firstName", {
-            get: function () {
-                return firstName;
-            },
-            set: function (value) {
-                if (value == null){
-                    throw Error("User cancelled!");
-                }
-                if (value.match(/^[A-Za-z]+$/)){
-                    firstName = value;
-                }else{
-                 this.firstName = prompt("Please input your firstname... Only A-Z and a-z letters are allowed!");   
-                }            }
-        });
-        Object.defineProperty(this, "lastName", {
-            get: function () {
-                return lastName;
-            },
-            set: function (value) {
-                if (value == null){
-                    throw Error("User cancelled!");
-                }
-                if (value.match(/^[A-Za-z]+$/)){
-                    lastName = value;
-                }else{
-                 this.lastName = prompt("Please input your lastname... Only A-Z and a-z letters are allowed!");   
-                }
-            }
-        });
+        let firstName;
+        let lastName;
+        this.setFirstName = function (value) {
+            firstName = value;
+        };
+        this.setLastName = function (value) {
+            lastName = value;
+        };
+        this.getFirstName = function () {
+            return firstName;
+        }
+        this.getLastName = function () {
+            return lastName;
+        }
         this.getLogin = function () {
             return firstName && lastName ?
                 firstName.charAt(0).toLocaleLowerCase().concat(lastName.toLocaleLowerCase()) :
                 undefined;
         };
     }
-    
     let newUser = new User();
-    newUser.firstName = prompt("Please input your fistname...");
-    newUser.lastName = prompt("Please input your lastname...");
-    return newUser;
+    newUser.setFirstName(prompt("Please input your fistname..."));
+    newUser.setLastName(prompt("Please input your lastname..."));
+    return Object.freeze(newUser);
 }
 
 let user = createNewUser();
 console.log(user.getLogin());
+user.firstName = "test";
+user.lastName = "test";
+console.log (user.firstName);
+console.log (user.lastName);
+user.setFirstName("test2")
+user.lastName = "test";
+console.log (user.firstName);
+console.log (user.getFirstName());
