@@ -62,5 +62,5 @@ function calcSoziacSign(birthDate) {
 
     return zodiacSignes.find(el => el.isWithinPeriod(birthDate));
 }
-
+//comment
 displayAgeAndZodiac(...promptBirthDate().split("."));
