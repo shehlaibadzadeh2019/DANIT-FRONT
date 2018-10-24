@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+
+    flex-wrap: wrap;
+}
+
+.item:nth-child(even) {
+    background-color: #f0f;
+}
+
+.item:nth-child(odd) {
+    background-color: #0ff;
+}
+
+.item {
+    flex-basis: 100%;
+}
+
+@media (min-width: 768px) {
+    .item {
+        flex-basis: 50%;
+        font-size: 50px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .item {
+        height: 200px;
+        flex: 1 0 25%;
+        font-size: 100px;
+        align-items: center;
+    }
+}

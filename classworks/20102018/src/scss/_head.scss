@@ -1,0 +1,11 @@
+.header {
+    background-color:black;
+    &-menu {
+      @include clearfix;
+      @include paddings(20px,40px);
+      @include font(20px,'Roboto', 700, #123);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  }

@@ -15,8 +15,12 @@ function deepClone(origin, copy = {}) {
     return copy;
 }
 
+//TODO: copy of objects without props
+let str = {val:5};
+let date = new Date();
 let origin = {
-    g: 2,
+    g: str,
+    g_date: date,
     h: [[[5]], ['gg']],
     c: {
         f: 5,
@@ -28,7 +32,8 @@ let origin = {
                     g: {
                         jl: 5,
                         kl: null,
-                        dd: new Date(),
+//                        deep_str: str,
+//                        deep_dat: date,
                         lk: undefined,
                         ff: [],
                         rm: /.+/
@@ -41,7 +46,10 @@ let origin = {
         alert("I'm a function")
     }
 }
-
-let copy = deepClone(origin);
 console.log(origin);
-console.log(copy);
+str = {val:0};
+//str.val = 0;
+console.log(str);
+date = new Date(2001, 0, 1);
+console.log(origin);
+

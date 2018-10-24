@@ -1,0 +1,18 @@
+@mixin clearfix {
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin paddings($px, $py) {
+    padding: $px $py;
+}
+
+@mixin font($size, $family, $weight, $color) {
+    font-size: $size;
+    font-family: $family, Arial, sans-serif;
+    font-weight: $weight;
+    color: $color;
+}

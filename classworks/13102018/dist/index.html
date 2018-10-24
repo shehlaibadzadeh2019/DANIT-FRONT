@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Smart Button</title>
+</head>
+
+<body>
+    <button data-target-id="spoiler" data-section="sploiler"><span>show/hide spoiler</span></button>
+    <div id="spoiler" hidden>spoiler</div>
+    <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+</body>
+
+<script>
+    document.querySelector('button').addEventListener('click',
+        function () {
+            console.dir(event.currentTarget.dataset);
+            // document.querySelector('#' + event.currentTarget.dataset.targetId).style.display = 'block';
+            document.querySelector('#' + event.currentTarget.dataset.targetId).toggleAttribute('hidden');
+        }
+    );
+
+    function adjacentElementsProduct(arr = [3, 6, -2, -5, 7, 3]) {
+        return Math.max(...arr.slice(1).map((n, i) => n * arr[i]))
+    }
+    console.log(adjacentElementsProduct());
+
+</script>
+
+</html>
