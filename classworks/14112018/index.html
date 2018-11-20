@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promises</title>
+</head>
+
+<body>
+    <script>
+        function loadFromUrl(url) {
+            return new Promise((resolve, reject) => {
+                let request = new XMLHttpRequest();
+                request.open('get', url);
+                request.onprogress = (e) => {
+                    console.log(
+                        `Bytes loaded: 
+                        ${e.loaded} of total: 
+                        ${e.lengthComputable ? e.total : "cannot be read from server."}`
+                    );
+                }
+                request.onload = () => {
+                    if (request.status === 200) {
+                        return resolve(JSON.parse(request.response));
+                    } else {
+                        return reject("Status other than 200 is not good enough!");
+                    }
+                }
+                request.onerror = () => reject(request.onerror.name);
+                try {
+                    request.send();
+                } catch (e) {
+                    console.log("To be handled latter...");
+                }
+            });
+        }
+
+        // loadFromUrl("https://raw.githubusercontent.com/json-iterator/test-data/master/BREAKME.json") // intentionally broken for testing purposes
+        loadFromUrl("https://raw.githubusercontent.com/json-iterator/test-data/master/large-file.json")
+        // loadFromUrl("large-file.json")
+            .then(function (data) {
+                console.dir("Here's your data:")
+                console.dir(data);
+            })
+            .catch(function (err) {
+                throw new Error(err)
+            });
+
+        console.log("I'm sync tester string!");
+    </script>
+</body>
+
+</html>
