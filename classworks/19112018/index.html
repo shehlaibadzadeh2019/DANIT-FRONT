@@ -36,9 +36,9 @@
         .then(films => films.forEach(film => showCharNames(film)));
 
         const showCharNames = function (film) {
-            let filmName;
+            let filmName = "\n*** %name% ***";
             film.then((filmData) => {
-                    filmName = `\n*** ${filmData.title} ***`;
+                    filmName = filmName.replace("%name%", filmData.title);
                     return filmData.characters.map(character => loadFromUrl(character))
                 })
                 .then(promises => Promise.all(promises))
