@@ -21,7 +21,7 @@
                         return reject("Status other than 200 is not good enough!");
                     }
                 }
-                request.onerror = () => reject(request.onerror.name);
+                request.onerror = () => reject(new Error("Something went wrong!"));
                 request.send();
             });
         }
