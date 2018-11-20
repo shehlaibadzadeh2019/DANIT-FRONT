@@ -36,12 +36,16 @@
         .then(films => films.forEach(film => showCharNames(film)));
 
         const showCharNames = function (film) {
+            let filmName;
             film.then((filmData) => {
+                    filmName = `\n*** ${filmData.title} ***`;
                     return filmData.characters.map(character => loadFromUrl(character))
                 })
                 .then(promises => Promise.all(promises))
-                .then(names => names
-                    .forEach(n => console.log(n.name)));
+                .then(names => {
+                    console.log(filmName);
+                    names.forEach(n => console.log(n.name));
+                    });
         }
     </script>
 </body>
