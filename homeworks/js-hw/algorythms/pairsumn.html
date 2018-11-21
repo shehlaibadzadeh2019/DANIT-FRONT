@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function stupidSearch(arr, n) {
+
+        }
+
+        function reasonableFilter(arr, n) {
+            const half = Math.floor(n / 2);
+            let indxX = -1;
+            let indxY = -1;
+            let x = 0;
+            const validPairs = [];
+
+            while (x <= half && arr.length > 1) { // TODO: to for; todo: cut array after pair found instead
+                if (~(indxX = arr.findIndex((el) => el === x))) {
+                    if (~(indxY = arr.findIndex((y, idx) => idx != indxX && y + x === n))) {
+                        let y = arr[indxY]; //speedup vs idx ref
+
+                        arr = arr.filter(el => el != y);
+                        validPairs.push({
+                            "x": x,
+                            "y": y
+                        })
+                    }
+                    arr = arr.filter(el => el != x); // leave the element itelft cut after last, cut befor first
+                }
+                x++;
+            }
+            return validPairs;
+        }
+
+        let testArr = [3, 6, 1, 2, 7, 5, 5];
+        let n = 10;
+        console.dir(reasonableFilter(testArr, n));
+        console.dir(reasonableFilter([8, 7, 2, 1], 9));
+    </script>
+</body>
+
+</html>

@@ -27,13 +27,13 @@
         }
 
         loadFromUrl("https://swapi.co/api/films/").then(data => {
-            const promises = new Array();
-            for (let index = 1; index <= data.count; index++) {
-                promises.push(loadFromUrl("https://swapi.co/api/films/" + index));
-            }
-            return promises;
-        })
-        .then(films => films.forEach(film => showCharNames(film)));
+                const promises = new Array();
+                for (let index = 1; index <= data.count; index++) {
+                    promises.push(loadFromUrl("https://swapi.co/api/films/" + index));
+                }
+                return promises;
+            })
+            .then(films => films.forEach(film => showCharNames(film)));
 
         const showCharNames = function (film) {
             let filmName = "\n*** %name% ***";
@@ -45,8 +45,17 @@
                 .then(names => {
                     console.log(filmName);
                     names.forEach(n => console.log(n.name));
-                    });
+                });
         }
+
+        // (async () => {
+        //     let filmsList = await getData('https://swapi.co/api/films');
+        //     let charList = await Promise.all(filmsList.results.map((film) => {
+        //         return Promise.all(film.characters.map((character) => getData(character)));
+        //     }))
+        // })();
+
+
     </script>
 </body>
 
