@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather</title>
+</head>
+
+<body>
+    <script>
+        function requestLocation() {
+            return new Promise((resolve, reject) => {
+                const req = new XMLHttpRequest();
+               const ip_address = '79.110.131.193';
+             //   const auth = '1ddba7d9-e727-408b-9613-e4b9f75e4ab8';
+             const key = "c7811f34686ee4757674c7bfec92fe93";
+              //  const url = "https://ipfind.co/?auth=" + auth + "&ip=" + ip_address;
+              const url = `http://api.ipstack.com/${ip_address}?access_key=${key}&format=1`;
+                req.onload = function () {
+                    if (this.status >= 200 && this.status <= 305) {
+                        return resolve(JSON.parse(this.responseText));
+                    } else {
+                        return reject(new Error("wrong status"));
+                    }
+                };
+                req.onerror = () => reject(new Error("error during request"));
+                req.open("GET", url, true);
+                req.send();
+            });
+        }
+
+        function requestWeather(latitute, longitude) {
+            return new Promise((resolve, reject) => {
+                const req = new XMLHttpRequest();
+                const auth = "cda6a15e090c3937b3727e2ebb36a1ed";
+                const url =
+                    `http://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${auth}`;
+                req.onload = function () {
+                    if (this.status >= 200 && this.status <= 305) {
+                        return resolve(JSON.parse(this.responseText));
+                    } else {
+                        return reject(new Error("wrong status"));
+                    }
+                };
+                req.onerror = () => reject(new Error("error during request"));
+                req.open("GET", url, true);
+                req.send();
+            });
+        }
+
+        console.log("starting");
+        console.log("fetching location by ip...");
+        requestLocation()
+            .then(locationData => {
+                console.log(locationData);
+                return locationData;
+            })
+            .then(locationData => {
+                console.log("fetching whether by long and lat...");
+                return requestWeather(locationData.latitude, locationData.longitude)
+            })
+            .then(weatherData => {
+                console.log(weatherData);
+                return weatherData;
+            }).then(weatherData => {
+                const cityNameHtml = document.createElement("h1");
+                cityNameHtml.setAttribute("class", "city__name");
+                cityNameHtml.innerHTML = weatherData.name;
+                document.body.appendChild(cityNameHtml);
+                Object.keys(weatherData.main).forEach(k => {
+                    const newHtmlElement = document.createElement("p")
+                    newHtmlElement.setAttribute("class", "city__weather")
+                    newHtmlElement.innerHTML = k + ": " + weatherData.main[k];
+                    document.body.appendChild(newHtmlElement);
+                });
+            });
+    </script>
+</body>
+
+</html>
