@@ -4,8 +4,7 @@ function cypher(str) {
             accum[idx % 2] += char
             return accum;
         }, ["", ""])
-        .join()
-        .replace(',', "");
+        .join([])
 }
 
 function cypherMultipleTimes(str, iterations) {
