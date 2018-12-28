@@ -25,6 +25,7 @@ function next (currentCharNum, currentElementIdx, elements, currentCount, maxCou
 		const newElements = elements.slice(0, currentElementIdx).concat(elements.slice(currentElementIdx + 1));
 		if (next (0, newElements.findIndex(el => mask.test(el)), newElements, currentCount + 1, maxCount, `${resultingSuquence} => ${currentElement}`, initial)) return true;
 	}
+	//TODO: problem must be here
 	if (currentCharNum < currentElement.length - 1) return next (++currentCharNum, currentElementIdx, elements, currentCount, maxCount, resultingSuquence, initial);
 	if (currentElementIdx < elements.length - 1) return next (0, ++currentElementIdx, elements, currentCount, maxCount, resultingSuquence, initial);
 	return false;
