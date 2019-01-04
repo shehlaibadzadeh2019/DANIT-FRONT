@@ -1,32 +1,27 @@
 function stringsRearrangement(inputArray) {
-	// let i = 0;
-	// res = false;
-	// while (i < inputArray.length && !res){
-	// 	res = next(0, i, inputArray, 0, inputArray.length);
-	// 	i++;
-	// }
-	// return res;
-	return (next(0, 0, inputArray, 0, inputArray.length - 1, "", inputArray));
+	return rearrange("", 0, 0, inputArray, 0, inputArray.length);
 }
 
-function next (currentCharNum, currentElementIdx, elements, currentCount, maxCount, resultingSuquence, initial){
-	if (elements.length === 0) return false;
-	if (currentCount === maxCount) {
-		console.log(`${initial} | ${resultingSuquence} => ${elements[currentElementIdx]}`);
-		return true;
+function rearrange(previuosWord, charIdx, wordIdx, words, count, wordsLength) {
+	if (count === wordsLength) return true;
+	if (words.length === 0) return false;
+	const mask = getMask(previuosWord, charIdx);
+	const nextElementIdx = words.findIndex((el, idx) => idx >= wordIdx && mask.test(el));
+	if (~nextElementIdx) {
+		let tempWords = Array.from(words);
+		if (rearrange(tempWords.splice(nextElementIdx, 1)[0], 0, 0, tempWords, count + 1, wordsLength)) return true;
+		if (wordIdx < words.length - 1) {
+			return rearrange(previuosWord, 0, wordIdx + 1, words, count, wordsLength);
+		}
 	}
-	const currentElement = elements[currentElementIdx];
-	let mask = currentElement.split('');
-	mask[currentCharNum] = `[^${currentElement[currentCharNum]}]`;
-	mask = new RegExp(mask.join(''));
-	//elements = elements.slice(0, currentElementIdx).concat(elements.slice(currentElementIdx + 1));
-	//if (next(0, 0, elements.filter(el => mask.test(el)), currentCount+1, maxCount)) return true;
-	if (elements.some(el => mask.test(el))){
-		const newElements = elements.slice(0, currentElementIdx).concat(elements.slice(currentElementIdx + 1));
-		if (next (0, newElements.findIndex(el => mask.test(el)), newElements, currentCount + 1, maxCount, `${resultingSuquence} => ${currentElement}`, initial)) return true;
+	if (charIdx < previuosWord.length - 1) {
+		return rearrange(previuosWord, charIdx + 1, wordIdx, words, count, wordsLength);
 	}
-	//TODO: problem must be here
-	if (currentCharNum < currentElement.length - 1) return next (++currentCharNum, currentElementIdx, elements, currentCount, maxCount, resultingSuquence, initial);
-	if (currentElementIdx < elements.length - 1) return next (0, ++currentElementIdx, elements, currentCount, maxCount, resultingSuquence, initial);
 	return false;
+}
+
+function getMask(word, charNumber) {
+	return word ? new RegExp(word.slice(0, charNumber)
+		.concat(`[^${word.charAt(charNumber)}]`)
+		.concat(word.slice(charNumber + 1))) : new RegExp(".*");
 }
