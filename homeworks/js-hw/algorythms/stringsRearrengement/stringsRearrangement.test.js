@@ -65,9 +65,3 @@ describe(`stringsRearrangement`, function () {
     chai.assert.isTrue(stringsRearrangement(["a", "b", "c"]));
   });
 });
-
-describe(`getMask`, function () {
-  it(`input:abcde, 2`, function () {
-    chai.assert.equal(getMask("abcde", 2).toString(), new RegExp("ab[^c]de").toString());
-  });
-});
