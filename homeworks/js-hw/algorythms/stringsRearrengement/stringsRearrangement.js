@@ -5,10 +5,10 @@ function stringsRearrangement(inputArray) {
 function rearrange(previuosWord, charIdx, wordIdx, words) {
 	if (words.length === 0) return true;
 	const mask = getMask(previuosWord, charIdx);
-	const nextElementIdx = words.findIndex((el, idx) => idx >= wordIdx && mask.test(el));
-	if (~nextElementIdx) {
+	const nextWordIdx = words.findIndex((el, idx) => idx >= wordIdx && mask.test(el));
+	if (~nextWordIdx) {
 		let tempWords = Array.from(words);
-		if (rearrange(tempWords.splice(nextElementIdx, 1)[0], 0, 0, tempWords)) return true;
+		if (rearrange(tempWords.splice(nextWordIdx, 1)[0], 0, 0, tempWords)) return true;
 		if (wordIdx < words.length - 1) return rearrange(previuosWord, 0, wordIdx + 1, words);
 	}
 	if (charIdx < previuosWord.length - 1) return rearrange(previuosWord, charIdx + 1, wordIdx, words);
