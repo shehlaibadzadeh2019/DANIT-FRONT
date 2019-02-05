@@ -1,0 +1,598 @@
+/*********** #c0392b base color      ***********//
+/*********** #962d22 base color dark ***********//
+/*********** #d65548 base color bright ***********//
+
+
+
+*{padding: 0;
+margin: 0;}
+
+
+body,html{
+    background-color: #fff;
+    color: #000;
+    font-family: 'lato-bold';
+    font-size:20px;
+    font-weight: 100;
+    letter-spacing: 0px;
+    text-rendering: optimizeLegibility;
+   
+    
+    overflow: hidden;
+}
+@font-face { 
+	font-family: 'Lato-Bold'; 
+src: url('css/lato.ttf'); }
+
+
+.clearfix:after{
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+    
+}
+
+
+
+/************************************/
+/************    REUSEABLE   ********/
+/************************************/
+
+a:link,a:visited{
+
+    color: #fff;
+    text-decoration: none;
+    
+    
+}
+
+.row{
+    margin: 0 auto;
+}
+
+
+.btn{
+      margin: 10px 10px;
+     border: 1px solid #565353; 
+    padding: 5px;
+    font-size: 50%;
+    font-weight: 500;
+    border-radius: 200px;
+    background-color: transparent;
+    color: #4a4949;
+    transition: background-color 0.3s;
+    cursor: default;
+      width: 100px;
+}
+
+.btn:hover{
+    background-color: rgba(0,0,0,0.19);
+    border: 1px solid ##575555; 
+    
+}
+h2{
+   width: 100%;
+    text-align:center;
+    color: #c0392b;
+}
+
+h2:after{
+    display: block;
+    height: 3px;
+    background-color:#c0392b;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+ 
+h3{
+   width: 100%;
+    text-align:center;
+    margin: 150px 0 0 0;
+}
+
+h3:after{
+    display: block;
+    height: 3px;
+    background-color:#c0392b;
+    content: " ";
+    
+    margin: 0 auto;
+    margin-top: 30px;
+}
+ 
+
+
+/************************************/
+/************    HEADER      ********/
+/************************************/
+
+
+header{
+    
+  
+  background-color: #c0392b;
+  border-bottom: 1px solid #909090;
+margin-bottom: 1%;
+    
+}
+.main-nav{
+    width: 100%;
+}
+
+.main-nav ul{
+    list-style: none;
+}
+
+.main-nav ul:first-child{
+    float: left;
+}
+
+.main-nav ul:last-child{
+    float: right
+}
+
+.main-nav li{
+    font-weight: 900;
+    color: #fff;
+}
+
+.main-nav ul:last-child li{
+  display: inline-block;
+    padding: 20px;
+    margin: 0 10px;
+    font-weight: 800;
+    color: #fff;
+    background-color: #c0392b;
+    transition: background-color 
+    
+}
+
+.main-nav ul:last-child  li:hover{
+    
+    background-color: #d65548;
+}
+
+
+
+
+/************************************/
+/************    game option      ********/
+/************************************/
+
+.game-controller{
+    
+    border-radius: 5px;
+    margin-top: -20px;
+    text-align: center;
+}
+
+.game-controller ul{
+    
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.game-controller i{
+    margin: 5px;
+}
+
+/************************************/
+/************    Game content box    ********/
+/************************************/
+
+.game-content{
+    
+    
+
+    
+
+}
+
+
+.game-top{
+   text-align: center;
+ 
+}
+.game-top P{
+    color: #4e4c4c;
+    font-weight: 60;
+	font-size: 12px;
+    padding-right: 20px;
+}
+
+
+
+.game-bottom{
+  
+    text-align: center;
+    clear: none;
+}
+
+.game-middle{
+    
+     margin: 0 auto;
+    width: 360px;
+    
+     height: 325px;
+}
+
+
+
+/************************************/
+/************    Game selection    ********/
+/************************************/
+
+.select-option{
+    list-style: none;
+}
+
+.select-option li{
+    display: inline-block;
+    border: 1px solid #4a4949;
+    background-color: transparent;
+    color: #4a4949;
+    padding:5px ;
+    border-radius: 10%;
+    font-size: 90%;
+    margin: 10px 1px;
+    cursor: default;
+	text-align: center;
+    transition: background-color 0.3s;
+    overflow: hidden;
+}
+
+.select-option li:hover{
+    
+    border: 1px solid #575555 ;
+    background-color: transparent ;
+
+}
+
+
+.btn.paused{
+    border: 1px solid #026969;
+    background-color: rgba(0,0,0,0.19);
+}
+
+
+.btn.paused:hover{
+    border: 1px solid #275050;
+    background-color: rgba(0,0,0,0.19);
+}
+
+
+/************************************/
+/************    New Game Options     ********/
+/************************************/
+
+
+.newGameOption{
+    
+    margin: 30px;
+    font-weight: 500;
+    
+    font-size: 18px;
+}
+
+.newGameOption div {
+    margin: 40px;
+}
+
+.newGameOption p{
+    color: #444242;
+}
+
+#select1{
+    width: 145px;
+    text-align: center;
+    background-color: transparent;
+}
+
+
+#newGame-Button{
+    padding: 5px;
+    border: 1px solid #444242;
+    background-color: transparent;
+    width: 45%;
+    border-radius: 200px;
+    vertical-align:middle;
+    color: #4a4949;
+    transition: border 0.2s;
+    cursor: default;
+    
+    text-align: center;
+    font-size: 12px;
+}   
+
+#newGame-Button:hover{
+   
+       border: 1px solid #575555;
+    background-color:  rgba(0,0,0,0.19);
+    
+}  
+
+
+
+/************************************/
+/************    Game status     ********/
+/************************************/
+
+.game-status ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.game-status li{
+    display: inline;
+    font-weight: 400;
+    margin: 0 5px;
+    font-size: 75%;
+    text-transform: uppercase;
+    
+}
+
+.difficulty,
+.moves,
+.timer{
+    margin-top: -40px;
+}
+
+
+.difficulty li:last-child{
+    color: #038383;
+}
+
+.moves li:last-child{
+    color: #1fc12b;
+}
+
+
+.timer{
+ 
+    color: teal;
+   
+}
+
+.time li{
+    display: block;
+}
+
+ .select-option{
+        padding: 0;
+        font-size: 22px;
+        white-space: nowrap;
+        font-family: 'lato-bold';
+    }
+
+
+
+/************************************/
+/************    pause state design     ********/
+/************************************/
+
+.pause-state p{
+    font-weight: 900;
+    color: #565353;
+    
+    text-align: center;
+    font-size: 20px;
+    padding-top: 100px;
+}
+
+#timer-Reset{
+    
+    
+}
+
+
+
+
+/************************************/
+/************    Table design     ********/
+/************************************/
+.isclicked{
+    
+    background-color:#baf0ec;
+}
+
+.preset{
+    
+    color: #564e4e;
+   
+    background-color: #f4f1f1;
+}
+
+.errorCell{
+    
+    background-color: #747373;
+    color: #fff;
+}
+
+
+
+#grid{
+    width: 100%;
+    height: 100%;
+}
+
+
+   td {
+        border: 1px solid #000000;
+        text-align: center;
+       width: 11%;
+       height: 10%;
+        margin: 0;
+        padding: 0;
+       font-size: 120%;
+       font-weight: 900;
+        vertical-align: middle;  
+       cursor: default;
+      }
+        
+     
+    .cell-0,  .cell-1,  .cell-2  { border-top:    3px solid #444242; }
+      .cell-2,  .cell-11, .cell-20 { border-right:  3px solid #444242; }
+      .cell-18, .cell-19, .cell-20 { border-bottom: 3px solid #444242; }
+      .cell-0,  .cell-9,  .cell-18 { border-left:   3px solid #444242; }
+      .cell-3,  .cell-4,  .cell-5  { border-top:    3px solid teal; }
+      .cell-5,  .cell-14, .cell-23 { border-right:  3px solid teal; }
+      .cell-21, .cell-22, .cell-23 { border-bottom: 3px solid teal; }
+      .cell-3,  .cell-12, .cell-21 { border-left:   3px solid teal; }
+      .cell-6,  .cell-7,  .cell-8  { border-top:    3px solid #444242; }
+      .cell-8,  .cell-17, .cell-26 { border-right:  3px solid #444242; }
+      .cell-24, .cell-25, .cell-26 { border-bottom: 3px solid #444242; }
+      .cell-6,  .cell-15, .cell-24 { border-left:   3px solid #444242; }
+      .cell-27, .cell-28, .cell-29 { border-top:    3px solid #444242; }
+      .cell-29, .cell-38, .cell-47 { border-right:  3px solid #444242; }
+      .cell-45, .cell-46, .cell-47 { border-bottom: 3px solid #444242; }
+      .cell-27, .cell-36, .cell-45 { border-left:   3px solid #444242; }
+      .cell-30, .cell-31, .cell-32 { border-top:    3px solid teal; }
+      .cell-32, .cell-41, .cell-50 { border-right:  3px solid teal; }
+      .cell-48, .cell-49, .cell-50 { border-bottom: 3px solid teal; }
+      .cell-30, .cell-39, .cell-48 { border-left:   3px solid teal; }
+      .cell-33, .cell-34, .cell-35 { border-top:    3px solid #444242; }
+      .cell-35, .cell-44, .cell-53 { border-right:  3px solid #444242; }
+      .cell-51, .cell-52, .cell-53 { border-bottom: 3px solid #444242; }
+      .cell-33, .cell-42, .cell-51 { border-left:   3px solid #444242; }
+      .cell-54, .cell-55, .cell-56 { border-top:    3px solid #444242; }
+      .cell-56, .cell-65, .cell-74 { border-right:  3px solid #444242; }
+      .cell-72, .cell-73, .cell-74 { border-bottom: 3px solid #444242; }
+      .cell-54, .cell-63, .cell-72 { border-left:   3px solid #444242; }
+      .cell-57, .cell-58, .cell-59 { border-top:    3px solid teal; }
+      .cell-59, .cell-68, .cell-77 { border-right:  3px solid teal; }
+      .cell-75, .cell-76, .cell-77 { border-bottom: 3px solid teal; }
+      .cell-57, .cell-66, .cell-75 { border-left:   3px solid teal; }
+      .cell-60, .cell-61, .cell-62 { border-top:    3px solid #444242; }
+      .cell-62, .cell-71, .cell-80 { border-right:  3px solid #444242; }
+      .cell-78, .cell-79, .cell-80 { border-bottom: 3px solid #444242; }
+      .cell-60, .cell-69, .cell-78 { border-left:   3px solid #444242; }
+
+
+
+/************************************/
+/************    How section design     ********/
+/************************************/
+
+.test{
+    
+}
+
+.section-how{
+    background-color: #d1cfcf;
+    padding: 80px;
+    height: auto;
+}
+
+.rule-img{
+    width: 400px
+}
+.rule-row{
+    
+    margin: 50px 0;
+}
+.rule-row div{
+    display: inline-block;
+}
+
+.how-rule{
+    vertical-align:top;
+    width: 40%;
+}
+
+.how-img{
+    padding: 0 25px;
+}
+
+.reset-img{
+    width: 300px;
+}
+
+/************************************/
+/************    footer design     ********/
+/************************************/
+footer{
+    background-color: #5d5c5c;
+    height: 125px;
+    
+}
+footer ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 900;
+    cursor: default;
+}
+
+footer i{
+    padding: 10px;
+    color: #c0392b;
+
+}
+
+
+.footer-label{
+    color: #fff;
+    font-size: 14px;
+  
+}
+
+
+.developerImage{
+    width: 60px;
+    border-radius: 50%;
+}
+
+
+
+/************************************/
+/************    winner design     ********/
+/************************************/
+
+.winner-display{
+    
+}
+
+.winner-display div{
+    
+    text-align: center;
+    font-weight: 500;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.winner-label,.winner-time{
+    color: #515959;
+}
+
+.toggle{
+	font-size:16px;
+	width:40px;
+	text-align:center;
+	color:#353232;
+	background-color:transparent;
+	border-color:transparent;
+	
+}
+
+.winner-button{
+    padding: 5px;
+    border: 1px solid #272a2a;
+    background-color: transparent;
+    border-radius: 200px;
+    color: #4a4949;
+    width: 120px;
+}
+
+.winner-button:hover{
+    background-color: rgba(0,0,0,0.19);
+    border: 1px solid #272a2a;
+}

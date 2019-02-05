@@ -1,0 +1,2412 @@
+<!DOCTYPE hmtl>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+    <button class="clear-ls" onclick="clearLocalStorage();location.href=location.href">Reset Statistics</button>
+    <div id="bottom-left">Games Completed: <b id="count"></b></div>
+
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            font-family: sans-serif;
+            background: #e9dfc4;
+            background: -moz-linear-gradient(left, #e9dfc4 0%, #e9dfc4 1%, #ede3c8 2%, #ede3c8 24%, #ebddc3 25%, #e9dfc4 48%, #ebddc3 49%, #e6d8bd 52%, #e6d8bd 53%, #e9dbc0 54%, #e6d8bd 55%, #e6d8bd 56%, #e9dbc0 57%, #e6d8bd 58%, #e6d8bd 73%, #e9dbc0 74%, #e9dbc0 98%, #ebddc3 100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, #e9dfc4), color-stop(1%, #e9dfc4), color-stop(2%, #ede3c8), color-stop(24%, #ede3c8), color-stop(25%, #ebddc3), color-stop(48%, #e9dfc4), color-stop(49%, #ebddc3), color-stop(52%, #e6d8bd), color-stop(53%, #e6d8bd), color-stop(54%, #e9dbc0), color-stop(55%, #e6d8bd), color-stop(56%, #e6d8bd), color-stop(57%, #e9dbc0), color-stop(58%, #e6d8bd), color-stop(73%, #e6d8bd), color-stop(74%, #e9dbc0), color-stop(98%, #e9dbc0), color-stop(100%, #ebddc3));
+            background: -webkit-linear-gradient(left, #e9dfc4 0%, #e9dfc4 1%, #ede3c8 2%, #ede3c8 24%, #ebddc3 25%, #e9dfc4 48%, #ebddc3 49%, #e6d8bd 52%, #e6d8bd 53%, #e9dbc0 54%, #e6d8bd 55%, #e6d8bd 56%, #e9dbc0 57%, #e6d8bd 58%, #e6d8bd 73%, #e9dbc0 74%, #e9dbc0 98%, #ebddc3 100%);
+            background: -o-linear-gradient(left, #e9dfc4 0%, #e9dfc4 1%, #ede3c8 2%, #ede3c8 24%, #ebddc3 25%, #e9dfc4 48%, #ebddc3 49%, #e6d8bd 52%, #e6d8bd 53%, #e9dbc0 54%, #e6d8bd 55%, #e6d8bd 56%, #e9dbc0 57%, #e6d8bd 58%, #e6d8bd 73%, #e9dbc0 74%, #e9dbc0 98%, #ebddc3 100%);
+            background: -ms-linear-gradient(left, #e9dfc4 0%, #e9dfc4 1%, #ede3c8 2%, #ede3c8 24%, #ebddc3 25%, #e9dfc4 48%, #ebddc3 49%, #e6d8bd 52%, #e6d8bd 53%, #e9dbc0 54%, #e6d8bd 55%, #e6d8bd 56%, #e9dbc0 57%, #e6d8bd 58%, #e6d8bd 73%, #e9dbc0 74%, #e9dbc0 98%, #ebddc3 100%);
+            background: linear-gradient(to right, #e9dfc4 0%, #e9dfc4 1%, #ede3c8 2%, #ede3c8 24%, #ebddc3 25%, #e9dfc4 48%, #ebddc3 49%, #e6d8bd 52%, #e6d8bd 53%, #e9dbc0 54%, #e6d8bd 55%, #e6d8bd 56%, #e9dbc0 57%, #e6d8bd 58%, #e6d8bd 73%, #e9dbc0 74%, #e9dbc0 98%, #ebddc3 100%);
+            background-size: 120px;
+            background-repeat: repeat;
+            height: 100%
+        }
+
+        #app {
+            display: none;
+            justify-content: center;
+            text-align: center;
+            font-family: 'lato-bold';
+            position: absolute;
+            top: 120px;
+            left: 0;
+            margin-left: auto;
+            margin-right: auto;
+            right: 0;
+        }
+
+        h1 {
+            margin-bottom: 0px;
+            padding: 0;
+            font-size: 20px;
+            background-color: #e7f3e7;
+            ;
+            border-radius: 5px;
+            color: grey;
+            font-weight: 300;
+            height: 40px;
+
+        }
+
+        label {
+            margin-top: 5px;
+
+        }
+
+        span.line {
+            text-decoration: line-through;
+            font-style: italic;
+            letter-spacing: -2px;
+        }
+
+        div.bgCircle {
+            width: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .circle {
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: none;
+            margin-left: 2%;
+            transition: ease-in-out 140ms;
+            cursor: pointer;
+        }
+
+        .circle:hover {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19), 0 3px 6px rgba(0, 0, 0, 0.23);
+            margin-top: -15px;
+        }
+
+        .color1 {
+            background: #FECEA8;
+        }
+
+        .color1:hover:after {
+            color: #232323;
+            font-size: 12px;
+            margin-top: 90px;
+        }
+
+        .color2 {
+            background: tan;
+        }
+
+        .color2:hover:after {
+            color: #232323;
+            font-size: 12px;
+            margin-top: 90px;
+        }
+
+        .color3 {
+            background: #eeeeea;
+        }
+
+        .color3:hover:after {
+            color: #232323;
+            font-size: 12px;
+            margin-top: 90px;
+        }
+
+        .color4 {
+            background: #EE7D8B;
+        }
+
+        .color4:hover:after {
+            color: #232323;
+            font-size: 12px;
+            margin-top: 90px;
+        }
+
+        .color4 {
+            background: #F8C7CD;
+        }
+
+        .color4:hover:after {
+            color: #232323;
+            font-size: 12px;
+            margin-top: 90px;
+        }
+
+        .clear-ls {
+            position: absolute;
+            right: 3px;
+            bottom: 40px;
+            padding: 2px;
+            margin-bottom: 10px;
+            font-size: 10px;
+            background-color: transparent;
+            border-radius: 5px;
+            color: #4a4949;
+        }
+
+        #bottom-left {
+            position: absolute;
+            left: 10px;
+            bottom: 50px;
+            font-size: 10px;
+            color: #4a4949;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="grid.css">
+    <link rel="stylesheet" type="text/css" href="css/ionicons.css">
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="stylesheet" type="text/css" href="queries.css">
+
+
+
+</head>
+
+<section>
+
+    <body>
+        <div class="row">
+
+
+
+            <div class="col span-4-of-6 content-box game-box">
+
+                <div class="game-content">
+
+
+
+
+
+                    <div class="game-top">
+
+                        <p>To Save Game Data, Start a New Game
+                            <b id="timer-Reset" style="font-weight:600;"></b>&nbsp;&nbsp;&nbsp;<b class="toggle"
+                                onclick="toggle();reveal();def();PlaySound1();" id="show"><i class="ion-android-color-palette"></i></b>
+
+                    </div>
+
+
+                    <div id="result"></div>
+
+
+                    <div class="game-middle"></div>
+
+                    <div class="game-bottom">
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+</section>
+<div class="col  span-1-of-6  content-box right-box">
+
+    <div class="game-status">
+
+        <div class="difficulty">
+            <ul>
+                <li>Difficulty:</li>
+                <li class="difficulty-level" id="diff-id">Easy</li>
+            </ul>
+
+        </div>
+
+        <div class="moves">
+            <ul>
+                <li></li>
+                <li id="moves-id" style="color:transparent;">36</li>
+
+            </ul>
+        </div>
+
+
+
+    </div>
+
+</div>
+<div class="col span-1-of-6 content-box game-options">
+
+    <div class="game-controller" id="game-controller-id">
+        <div>
+            <center>
+                <button class="btn" id="btn-pause" onclick="hidebtnnew();hidebtnreset();"> <i class="ion-ios-pause pause-icon"></i>
+                    Pause</li>
+                    <button class="btn" id="btn-reset"> <i class="ion-refresh"></i> Reset</li>
+                        <button class="btn" id="btn-new" onclick="setVisibility('game-controller-id', 'none');" ;> <i
+                                class="ion-flash"></i>New Game</li>
+        </div>
+        </center>
+
+
+    </div>
+
+</div>
+</div>
+
+<div id="app"></div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script src="jquery.js"></script>
+<script src="jquery-2.2.4.min.js"></script>
+
+<!--Game Funtions-->
+
+<script>
+    var sudokuController = (function () {
+
+
+        var cellValues = [
+
+
+            0,
+
+            0,
+
+            0,
+
+            2,
+
+            6,
+
+            0,
+
+            7,
+
+            0,
+
+            1,
+
+            6,
+
+            8,
+
+            0,
+
+            0,
+
+            7,
+
+            0,
+
+            0,
+
+            9,
+
+            0,
+
+            1,
+
+            9,
+
+            0,
+
+            0,
+
+            0,
+
+            4,
+
+            5,
+
+            0,
+
+            0,
+
+            8,
+
+            2,
+
+            0,
+
+            1,
+
+            0,
+
+            0,
+
+            0,
+
+            4,
+
+            0,
+
+            0,
+
+            0,
+
+            4,
+
+            6,
+
+            0,
+
+            2,
+
+            9,
+
+            0,
+
+            0,
+
+            0,
+
+            5,
+
+            0,
+
+            0,
+
+            0,
+
+            3,
+
+            0,
+
+            2,
+
+            8,
+
+            0,
+
+            0,
+
+            9,
+
+            3,
+
+            0,
+
+            0,
+
+            0,
+
+            7,
+
+            4,
+
+            0,
+
+            4,
+
+            0,
+
+            0,
+
+            5,
+
+            0,
+
+            0,
+
+            3,
+
+            6,
+
+            7,
+
+            0,
+
+            3,
+
+            0,
+
+            1,
+
+            8,
+
+            0,
+
+            0,
+
+            0
+
+
+        ];
+
+
+        var cellNames = [
+
+            "1-1-1",
+
+            "1-2-1",
+
+            "1-3-1",
+
+            "1-4-2",
+
+            "1-5-2",
+
+            "1-6-2",
+
+            "1-7-3",
+
+            "1-8-3",
+
+            "1-9-3",
+
+            "2-1-1",
+
+            "2-2-1",
+
+            "2-3-1",
+
+            "2-4-2",
+
+            "2-5-2",
+
+            "2-6-2",
+
+            "2-7-3",
+
+            "2-8-3",
+
+            "2-9-3",
+
+            "3-1-1",
+
+            "3-2-1",
+
+            "3-3-1",
+
+            "3-4-2",
+
+            "3-5-2",
+
+            "3-6-2",
+
+            "3-7-3",
+
+            "3-8-3",
+
+            "3-9-3",
+
+            "4-1-4",
+
+            "4-2-4",
+
+            "4-3-4",
+
+            "4-4-5",
+
+            "4-5-5",
+
+            "4-6-5",
+
+            "4-7-6",
+
+            "4-8-6",
+
+            "4-9-6",
+
+            "5-1-4",
+
+            "5-2-4",
+
+            "5-3-4",
+
+            "5-4-5",
+
+            "5-5-5",
+
+            "5-6-5",
+
+            "5-7-6",
+
+            "5-8-6",
+
+            "5-9-6",
+
+            "6-1-4",
+
+            "6-2-4",
+
+            "6-3-4",
+
+            "6-4-5",
+
+            "6-5-5",
+
+            "6-6-5",
+
+            "6-7-6",
+
+            "6-8-6",
+
+            "6-9-6",
+
+            "7-1-7",
+
+            "7-2-7",
+
+            "7-3-7",
+
+            "7-4-8",
+
+            "7-5-8",
+
+            "7-6-8",
+
+            "7-7-9",
+
+            "7-8-9",
+
+            "7-9-9",
+
+            "8-1-7",
+
+            "8-2-7",
+
+            "8-3-7",
+
+            "8-4-8",
+
+            "8-5-8",
+
+            "8-6-8",
+
+            "8-7-9",
+
+            "8-8-9",
+
+            "8-9-9",
+
+            "9-1-7",
+
+            "9-2-7",
+
+            "9-3-7",
+
+            "9-4-8",
+
+            "9-5-8",
+
+            "9-6-8",
+
+            "9-7-9",
+
+            "9-8-9",
+
+            "9-9-9"
+        ];
+
+
+
+
+
+        //class for cells
+
+
+        var cell = function (id, row, col, block, value)
+
+        {
+
+            this.id = id;
+
+            this.row = row;
+
+            this.col = col;
+
+            this.block = block;
+
+            this.value = value;
+
+            this.preset = false;
+
+
+
+
+
+
+
+        };
+
+        var ctmep = cell();
+
+        //object to save all game data
+
+
+        var data = {
+
+
+
+            allcell: [],
+
+            selcell: [],
+            mainSelect: false,
+            mainValue: new cell(),
+            familyCells: [],
+            level: 'easy',
+            laspeTime: new Date(0, 0, 0, 0),
+            resetTime: new Date(0, 0, 0, 0),
+            gamestatus: 'play',
+
+
+        }
+
+
+
+
+
+
+        var setupDefaultCells = function () {
+
+
+
+            for (var i = 0; i < cellNames.length; i++) {
+                var sp = cellNames[i].split('-');
+
+                var newCell = new cell(cellNames[i], parseInt(sp[0]), parseInt(sp[1]), parseInt(sp[2]),
+                    cellValues[i]);
+
+                if (cellValues[i] !== 0) {
+                    newCell.preset = true;
+                }
+
+
+                data.allcell.push(newCell);
+
+
+            }
+        }
+
+        var setupBlankCells = function () {
+            data.allcell = [];
+
+
+            for (var i = 0; i < cellNames.length; i++) {
+                var sp = cellNames[i].split('-');
+
+                var newCell = new cell(cellNames[i], parseInt(sp[0]), parseInt(sp[1]), parseInt(sp[2]), 0);
+
+
+                newCell.preset = false;
+
+
+
+                data.allcell.push(newCell);
+
+
+            }
+
+            //console.log(data.allcell);
+        }
+
+
+        var getFamilyRow = function (r) {
+            var rArry = [];
+
+            for (var x = 0; x < data.allcell.length; x++) {
+                if (data.allcell[x].row == r) {
+                    rArry.push(data.allcell[x]);
+                }
+
+            }
+            return rArry;
+
+        }
+
+
+
+
+        var getFamilyCol = function (c) {
+            var cArry = [];
+
+            for (var x = 0; x < data.allcell.length; x++) {
+                if (data.allcell[x].col == c) {
+                    cArry.push(data.allcell[x]);
+                }
+
+            }
+            return cArry;
+
+        }
+
+
+        var getFamilyBlock = function (b) {
+            var bArry = [];
+
+            for (var x = 0; x < data.allcell.length; x++) {
+                if (data.allcell[x].block == b) {
+                    bArry.push(data.allcell[x]);
+                }
+
+            }
+            return bArry;
+
+
+        }
+
+
+        var setFamilyCells = function (cell) {
+            data.familyCells = [];
+
+
+            var r = getFamilyRow(cell.row);
+            var c = getFamilyCol(cell.col);
+            var b = getFamilyBlock(cell.block);
+
+            for (var x = 0; x < r.length; x++) {
+                data.familyCells.push(r[x]);
+            }
+
+            for (var x = 0; x < c.length; x++) {
+                data.familyCells.push(c[x]);
+            }
+
+            for (var x = 0; x < b.length; x++) {
+                data.familyCells.push(b[x]);
+            }
+
+
+        }
+
+
+
+
+
+        return {
+
+            checkComplete: function () {
+                var isCom = false;
+
+                for (var i = 0; i < data.allcell.length; i++) {
+                    if (data.allcell[i].value == 0) {
+                        isCom = true;
+                    }
+                }
+                return isCom;
+
+            },
+
+            getCurrentGameLevel: function () {
+                return data.level;
+            },
+
+            getMovesLeft: function () {
+                var num = 0;
+
+                for (var i = 0; i < data.allcell.length; i++) {
+                    if (data.allcell[i].value == 0) {
+                        num++;
+                    }
+                }
+                return num;
+
+            },
+
+            setupDefault: function () {
+                setupDefaultCells();
+            },
+
+            runResetCells: function () {
+                for (var x = 0; x < data.allcell.length; x++) {
+                    if (!data.allcell[x].preset) {
+                        data.allcell[x].value = 0;
+                    }
+                }
+            },
+
+
+
+            setupBlank: function () {
+                setupBlankCells();
+            },
+
+            restartTimer: function () {
+                data.laspeTime = new Date(0, 0, 0, 0);
+            },
+
+            getDefault: function () {
+                return data.allcell;
+                // console.log
+            },
+
+
+            checkIDvaild: function (cid) {
+                var isvaild = false;
+
+
+                for (var x = 0; x < data.allcell.length; x++) {
+                    if (cid === data.allcell[x].id && !data.allcell[x].preset) {
+                        isvaild = true;
+                    }
+
+                }
+
+                return isvaild;
+            },
+
+
+            setGameStatus: function (v) {
+                data.gamestatus = v;
+            },
+
+            getGameStatus: function () {
+                return data.gamestatus;
+            },
+
+            getCellbyID: function (cid) {
+                var c;
+
+
+                for (var x = 0; x < data.allcell.length; x++) {
+                    if (cid === data.allcell[x].id) {
+                        c = data.allcell[x];
+                    }
+
+                }
+
+                return c;
+            },
+
+            setMainSelect: function (v) {
+                data.mainSelect = true;
+                data.mainValue = v;
+                // console.log("add");
+                //console.log(data.mainValue);
+            },
+
+            clearMainSelect: function () {
+                data.mainSelect = false;
+                data.mainValue = new cell();
+                // console.log("clear");
+                // console.log(data.mainValue);
+                data.familyCells = [];
+            },
+
+            setFamilyCell: function (cell) {
+
+
+
+                data.familyCells = [];
+
+
+                var r = getFamilyRow(cell.row);
+                var c = getFamilyCol(cell.col);
+                var b = getFamilyBlock(cell.block);
+
+                for (var x = 0; x < r.length; x++) {
+                    data.familyCells.push(r[x]);
+                }
+
+                for (var x = 0; x < c.length; x++) {
+                    data.familyCells.push(c[x]);
+                }
+
+                for (var x = 0; x < b.length; x++) {
+                    data.familyCells.push(b[x]);
+                }
+
+
+            },
+
+            getFamilyCell: function () {
+                return data.familyCells;
+
+            },
+
+            isFamilyCell: function (selV) {
+                var isfamily = false;
+                var errArry = [];
+                // console.log("hello"); 
+                if (selV == 0) {
+                    isfamily = false;
+                    // console.log("hello");
+                } else {
+
+                    for (var x = 0; x < data.familyCells.length; x++) {
+                        if (selV == data.familyCells[x].value) {
+                            isfamily = true;
+                            errArry.push(data.familyCells[x]);
+                        }
+
+                    }
+                }
+
+
+                return {
+                    isfam: isfamily,
+                    Arry: errArry
+
+                }
+            },
+
+
+            exchangeValues: function (v) {
+                data.mainValue.value = v;
+            },
+
+            getTenRandomCells: function () {
+                var ranArry = [];
+
+
+
+
+                for (var x = 0; x < 6; x++) {
+                    var r = Math.floor(Math.random() * 81);
+                    var isExist = false;
+                    for (var k = 0; k < ranArry.length; k++) {
+                        if (ranArry[k] == data.allcell[r]) {
+                            isExist = true;
+                        } else {
+                            isExist = false;
+                        }
+                    }
+
+
+                    if (isExist) {
+                        x--
+                    } else {
+                        ranArry.push(data.allcell[r]);
+                    }
+
+                }
+
+                return ranArry;
+
+            },
+
+
+            setRandomForRandomCells: function (cells) {
+
+            },
+
+            test1: function () {
+
+                //  console.log("test");
+            },
+
+            test2: function () {
+
+                test1();
+            },
+
+            resetResetTime: function () {
+                data.resetTime = new Date(0, 0, 0, 0);
+                data.resetTime.setMinutes(3);
+                //console.log("here");
+                //console.log(data.resetTime);
+
+            },
+
+            checkIfReset: function () {
+                var isReset = false;
+
+                var sec = (data.resetTime.getMinutes() * 60) + data.resetTime.getSeconds();
+                if (sec == 0) {
+                    isReset = true
+                }
+
+                // console.log(sec);
+
+                return isReset;
+            },
+
+            getTimes: function () {
+                return {
+                    lTime: data.laspeTime,
+                    rTime: data.resetTime,
+
+                }
+            },
+
+            timeChange: function () {
+
+
+
+                data.laspeTime.setSeconds(data.laspeTime.getSeconds() + 1);
+                data.resetTime.setSeconds(data.resetTime.getSeconds() - 1);
+
+                //   console.log(data.resetTime);
+                //       console.log(data.laspeTime);  
+
+            },
+
+            setNewGameLevel: function (v) {
+                data.level = v;
+
+            },
+
+            setLevel: function () {
+                var fillCell = 0;
+
+
+
+                if (data.level === "easy")
+
+                {
+
+                    // console.log("Easy");
+
+                    fillCell = 45;
+
+                } else if (data.level === "medium")
+
+                {
+
+                    // console.log("medium");
+
+                    fillCell = 35;
+
+                } else if (data.level === "hard")
+
+                {
+
+                    //  console.log("hard");
+
+                    fillCell = 20;
+
+                }
+
+
+                // clear all cells preset
+                for (var x = 0; x < data.allcell.length; x++)
+
+                {
+                    data.allcell[x].preset = false;
+                }
+
+                // find random cells based on fillcell
+
+
+                var ranArry = [];
+
+
+
+
+                for (var x = 0; x < fillCell; x++) {
+                    var r = Math.floor(Math.random() * 81);
+                    var isExist = false;
+                    for (var k = 0; k < ranArry.length; k++) {
+                        if (ranArry[k] == r) {
+                            isExist = true;
+                        }
+
+                    }
+
+
+                    if (isExist) {
+                        x--;
+                    } else {
+                        ranArry.push(r);
+                    }
+
+                }
+                //   console.log(ranArry);
+
+
+                for (var k = 0; k < ranArry.length; k++) {
+                    data.allcell[ranArry[k]].preset = true;
+                    // data.allcell[k].value = ranArry[k];
+                    // data.allcell[k].preset=true;
+                }
+
+
+                // delete all without preset 
+
+
+
+                for (var k = 0; k < data.allcell.length; k++) {
+                    if (!data.allcell[k].preset) {
+                        data.allcell[k].value = 0;
+                    }
+                }
+
+
+
+            },
+
+
+            clearOneCellRandom: function () {
+                var tArry = [];
+
+                for (var x = 0; x < data.allcell.length; x++) {
+                    if (!data.allcell[x].preset && data.allcell[x].value != 0) {
+                        tArry.push(data.allcell[x]);
+                        //  console.log(tArry);
+                    }
+
+
+                }
+
+                if (tArry.length > 0) {
+                    var rNum = Math.floor(Math.random() * tArry.length);
+                    // console.log(rNum);
+                    tArry[rNum].value = 0;
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+    })();
+
+
+
+    /*****************************************************************************/
+    /********************************* Controll  UI ********************************/
+    /*****************************************************************************/
+
+
+
+    var UIController = (function () {
+
+        var tablehtml =
+            '<table id="grid" class="center"><tr><td class="cell-0 " id="1-1-1" ></td><td class="cell-1" id="1-2-1" ></td><td class="cell-2" id="1-3-1" ></td><td class ="cell-3" id="1-4-2"></td><td class="cell-4" id="1-5-2" ></td><td class="cell-5" id="1-6-2" ></td><td class="cell-6" id="1-7-3" ></td><td class="cell-7" id="1-8-3"></td><td class="cell-8" id="1-9-3" ></td></tr><tr><td class="cell-9" id="2-1-1" ></td><td class="cell-10" id="2-2-1" ></td><td class="cell-11" id="2-3-1" ></td><td class="cell-12" id="2-4-2" ></td><td class="cell-13" id="2-5-2" ></td><td class="cell-14" id="2-6-2"></td><td class="cell-15" id="2-7-3"></td><td class="cell-16" id="2-8-3"></td><td class="cell-17" id="2-9-3"></td></tr><tr><td class="cell-18" id="3-1-1"></td><td class="cell-19" id="3-2-1"  ></td><td class="cell-20" id="3-3-1" ></td><td class="cell-21" id="3-4-2" ></td><td class="cell-22" id="3-5-2"  ></td><td class="cell-23" id="3-6-2" ></td><td class="cell-24" id="3-7-3"></td><td class="cell-25" id="3-8-3"></td><td class="cell-26" id="3-9-3"></td></tr><tr><td class="cell-27" id="4-1-4"></td><td class="cell-28" id="4-2-4" ></td><td class="cell-29" id="4-3-4" ></td><td class="cell-30" id="4-4-5"></td><td class="cell-31" id="4-5-5" ></td><td class="cell-32" id="4-6-5"></td><td class="cell-33" id="4-7-6"></td><td class="cell-34" id="4-8-6"></td><td class="cell-35" id="4-9-6"></td></tr><tr><td class="cell-36" id="5-1-4"></td><td class="cell-37" id="5-2-4"></td><td class="cell-38" id="5-3-4"></td><td class="cell-39" id="5-4-5"></td><td class="cell-40" id="5-5-5"></td><td class="cell-41" id="5-6-5" ></td><td class="cell-42" id="5-7-6"></td><td class="cell-43" id="5-8-6"></td><td class="cell-44" id="5-9-6"></td></tr><tr><td class="cell-45" id="6-1-4"></td><td class="cell-46" id="6-2-4"></td><td class="cell-47" id="6-3-4"></td><td class="cell-48" id="6-4-5"></td><td class="cell-49" id="6-5-5"></td><td class="cell-50" id="6-6-5"></td><td class="cell-51" id="6-7-6" ></td><td class="cell-52" id="6-8-6" ></td><td class="cell-53" id="6-9-6" ></td></tr><tr><td class="cell-54" id="7-1-7"></td><td class="cell-55" id="7-2-7" ></td><td class="cell-56" id="7-3-7"></td><td class="cell-57" id="7-4-8" ></td><td class="cell-58" id="7-5-8" ></td><td class="cell-59" id="7-6-8" ></td><td class="cell-60" id="7-7-9" ></td><td class="cell-61" id="7-8-9" ></td><td class="cell-62" id="7-9-9"></td></tr><tr><td class="cell-63" id="8-1-7" ></td><td class="cell-64" id="8-2-7"></td><td class="cell-65" id="8-3-7"></td><td class="cell-66" id="8-4-8"></td><td class="cell-67" id="8-5-8"></td><td class="cell-68" id="8-6-8" ></td><td class="cell-69" id="8-7-9" ></td><td class="cell-70" id="8-8-9"></td><td class="cell-71" id="8-9-9"></td></tr><tr><td class="cell-72" id="9-1-7"></td><td class="cell-73" id="9-2-7"></td><td class="cell-74" id="9-3-7"></td><td class="cell-75" id="9-4-8"></td><td class="cell-76" id="9-5-8"></td><td class="cell-77" id="9-6-8"></td><td class="cell-78" id="9-7-9"></td><td class="cell-79" id="9-8-9"></td><td class="cell-80" id="9-9-9" ></td></tr></table>';
+
+
+
+
+        var selectbarhtml =
+            '<ul class="select-option"><li id="select-1" onclick = "PlaySound3 ();">&nbsp;1&nbsp;</li><li id="select-2" onclick = "PlaySound3 ();">&nbsp;2&nbsp;</li><li id="select-3" onclick = "PlaySound3 ();">&nbsp;3&nbsp;</li><li id="select-4" onclick = "PlaySound3 ();">&nbsp;4&nbsp;</li><li id="select-5" onclick = "PlaySound3 ();">&nbsp;5&nbsp;</li><li id="select-6" onclick = "PlaySound3 ();">&nbsp;6&nbsp;</li><li id="select-7" onclick = "PlaySound3 ();">&nbsp;7&nbsp;</li><li id="select-8" onclick = "PlaySound3 ();">&nbsp;8&nbsp;</li><li id="select-9" onclick = "PlaySound3 ();">&nbsp;9&nbsp;</li><li id="select-0" style="background: url(images/arrows.png)no-repeat center; color:transparent; background-color:transparent;" onclick="PlaySound5();"><audio id = "bflat" > </audio>&nbsp;X&nbsp;</li></ul>';
+
+
+        var gamepausehmtl =
+            '<table id="grid" class="center"><tr><td class="cell-0 " ></td><td class="cell-1" id="1-2-1" ></td><td class="cell-2" id="1-3-1" ></td><td class ="cell-3" id="1-4-2"></td><td class="cell-4" id="1-5-2" ></td><td class="cell-5" id="1-6-2" ></td><td class="cell-6" id="1-7-3" ></td><td class="cell-7" id="1-8-3"></td><td class="cell-8" id="1-9-3" ></td></tr><tr><td class="cell-9" id="2-1-1" ></td><td class="cell-10" id="2-2-1" ></td><td class="cell-11" id="2-3-1" ></td><td class="cell-12" id="2-4-2" ></td><td class="cell-13" id="2-5-2" ></td><td class="cell-14" id="2-6-2"></td><td class="cell-15" id="2-7-3"></td><td class="cell-16" id="2-8-3"></td><td class="cell-17" id="2-9-3"></td></tr><tr><td class="cell-18" id="3-1-1"></td><td class="cell-19" id="3-2-1"  ></td><td class="cell-20" id="3-3-1" ></td><td class="cell-21" id="3-4-2" ></td><td class="cell-22" id="3-5-2"  ></td><td class="cell-23" id="3-6-2" ></td><td class="cell-24" id="3-7-3"></td><td class="cell-25" id="3-8-3"></td><td class="cell-26" id="3-9-3"></td></tr><tr><td class="cell-27" id="4-1-4"></td><td class="cell-28" id="4-2-4" ></td><td class="cell-29" id="4-3-4" ></td><td class="cell-30" id="4-4-5"></td><td class="cell-31" id="4-5-5" ></td><td class="cell-32" id="4-6-5"></td><td class="cell-33" id="4-7-6"></td><td class="cell-34" id="4-8-6"></td><td class="cell-35" id="4-9-6"></td></tr><tr><td class="cell-36" id="5-1-4"></td><td class="cell-37" id="5-2-4"></td><td class="cell-38" id="5-3-4"></td><td class="cell-39" id="5-4-5"></td><td class="cell-40" id="5-5-5"></td><td class="cell-41" id="5-6-5" ></td><td class="cell-42" id="5-7-6"></td><td class="cell-43" id="5-8-6"></td><td class="cell-44" id="5-9-6"></td></tr><tr><td class="cell-45" id="6-1-4"></td><td class="cell-46" id="6-2-4"></td><td class="cell-47" id="6-3-4"></td><td class="cell-48" id="6-4-5"></td><td class="cell-49" id="6-5-5"></td><td class="cell-50" id="6-6-5"></td><td class="cell-51" id="6-7-6" ></td><td class="cell-52" id="6-8-6" ></td><td class="cell-53" id="6-9-6" ></td></tr><tr><td class="cell-54" id="7-1-7"></td><td class="cell-55" id="7-2-7" ></td><td class="cell-56" id="7-3-7"></td><td class="cell-57" id="7-4-8" ></td><td class="c;ell-58" id="7-5-8" ></td><td class="cell-59" id="7-6-8" ></td><td class="cell-60" id="7-7-9" ></td><td class="cell-61" id="7-8-9" ></td><td class="cell-62" id="7-9-9"></td></tr><tr><td class="cell-63" id="8-1-7" ></td><td class="cell-64" id="8-2-7"></td><td class="cell-65" id="8-3-7"></td><td class="cell-66" id="8-4-8"></td><td class="cell-67" id="8-5-8"></td><td class="cell-68" id="8-6-8" ></td><td class="cell-69" id="8-7-9" ></td><td class="cell-70" id="8-8-9"></td><td class="cell-71" id="8-9-9"></td></tr><tr><td class="cell-72" id="9-1-7"></td><td class="cell-73" id="9-2-7"></td><td class="cell-74" id="9-3-7"></td><td class="cell-75" id="9-4-8"></td><td class="cell-76" id="9-5-8"></td><td class="cell-77" id="9-6-8"></td><td class="cell-78" id="9-7-9"></td><td class="cell-79" id="9-8-9"></td><td class="cell-80" id="9-9-9" ></td></tr></table><button style="border-radius:50px;color:grey;font-size:30px;background-color:transparent;border:1px solid grey;text-align:center;margin-right:auto;margin-left:auto;width:60px;height:60px;position:absolute;left:0;right:0;top:170px;" disabled><i class="ion-ios-play -icon">';
+
+        var newGamehtml =
+            '<center><div class="newGameOption" id="newGameId"><div><p>SELECT GAME LEVEL</p></div><div><select id="select1" select="name"><option value="easy" selected>Easy </option><option value="medium">Medium</option><option value="hard">Hard</option></select></div><br><div id="newGame-Button" onclick = "show();PlaySound2();"> START GAME <audio id = "bflat2" > </audio></div></div></center>';
+
+
+        var gameTopInfohmtl =
+            '<p>Every 3 minutes you will lose a cell:&nbsp;&nbsp;<b id="timer-Reset" style="font-weight:600;">00:00:00</b>&nbsp;&nbsp;&nbsp;<b class="toggle" onclick = "toggle();reveal();def();PlaySound1();"><i class="ion-android-color-palette"></i></b><p style="position:absolute;margin-top:330px;left:0;right:0;"><b id="laspe-Time" style="font-size:10px;"> 5:00</p></b>';
+
+        var gameOptionhmtl =
+            '<div class="game-controller" id="game-controller-id"><ul><li class="btn" id="btn-reset"> <i class="ion-refresh"></i> Reset</li><li class="btn" id="btn-new"> <i class="ion-flash"></i>New Game</li><li class="btn" id="btn-pause"> <i class="ion-android- pause-icon"></i> Pause</li></ul></div> ';
+
+        var gameSideInfohtml =
+            '<div class="difficulty"><ul><li>Difficulty:</li><li class="difficulty-level" id="diff-id">Easy</li></ul></div><div class="moves"><ul><li></li><li id="moves-id" style="color:transparent;">50</li></ul></div><div class="timer">';
+
+        var winnerHMTL =
+            '<div class="winner-display"><div class="winner-label" >CONGRATULATIONS!</div><div class="winner-label">YOU COMPLETED THE PUZZLE IN</div><div class="winner-time">00000</div><div class="winner-button" style="text-align:center;color:margin-top:26%" onclick="PlaySound2 ();btnClicked();">CONTINUE<audio id = "bflat2"> </audio></div></div>';
+
+
+        return {
+            setTopInfoHMTL: function () {
+                document.querySelector(".game-top").innerHTML = gameTopInfohmtl;
+            },
+
+            removeTopInfoHMTL: function () {
+                document.querySelector(".game-top").innerHTML = " ";
+            },
+
+            setSidefoHMTL: function () {
+                document.querySelector(".game-status").innerHTML = gameSideInfohtml;
+            },
+
+            removeSidefoHMTL: function () {
+                document.querySelector(".game-status").innerHTML = " ";
+            },
+
+
+            setGameOptionfoHMTL: function () {
+                document.querySelector(".game-options").innerHTML = gameOptionhmtl;
+            },
+
+            removeGameOptionfoHMTL: function () {
+                document.querySelector(".game-options").innerHTML = " ";
+            },
+
+
+
+
+            setupTableHTML: function () {
+                document.querySelector(".game-middle").innerHTML = tablehtml;
+            },
+
+            setupNewGameHTML: function () {
+                document.querySelector(".game-middle").innerHTML = newGamehtml;
+            },
+
+            setupWinnerHTML: function () {
+                document.querySelector(".game-middle").innerHTML = winnerHMTL;
+            },
+
+            removeWinnerHTML: function () {
+                document.querySelector(".game-middle").innerHTML = " ";
+            },
+
+
+            setupTables: function (Cells) {
+
+                // console.log(Cells);
+
+
+
+                for (var i = 0; i < Cells.length; i++) {
+
+                    if (Cells[i].value != 0) {
+                        //  console.log(Cells[i].id);
+                        // console.log(Cells[i].value);
+
+
+                        document.getElementById(Cells[i].id).textContent = Cells[i].value;
+                    } else {
+
+                        document.getElementById(Cells[i].id).textContent = " ";
+                    }
+
+
+
+
+
+
+                }
+
+
+            },
+
+            formatAllcellBackground: function (allcells) {
+                for (var x = 0; x < allcells.length; x++) {
+                    if (allcells[x].preset) {
+                        document.getElementById(allcells[x].id).classList.add("preset");
+                    } else {
+                        document.getElementById(allcells[x].id).classList.remove("isclicked");
+                        document.getElementById(allcells[x].id).classList.remove("errorCell");
+                    }
+
+                }
+            },
+
+            showSelectBar: function () {
+                document.querySelector('.game-bottom').innerHTML = selectbarhtml;
+
+
+            },
+            hideSelectBar: function () {
+                document.querySelector('.game-bottom').innerHTML = " ";
+
+
+            },
+
+            clickBackground: function (c) {
+                document.getElementById(c.id).classList.add("isclicked");
+
+
+            },
+
+            errorBackground: function (cells) {
+
+                for (var x = 0; x < cells.length; x++) {
+                    document.getElementById(cells[x].id).classList.add("errorCell");
+                }
+            },
+
+            clearErrorBackground: function (cells) {
+                for (var x = 0; x < cells.length; x++) {
+                    document.getElementById(cells[x].id).classList.remove("errorCell");
+                }
+            },
+
+
+            setWinnerTimesToDocument: function (lTime) {
+                var lHours, lMinutes, lSeconds;
+
+
+                if (lTime.getMinutes() < 10) {
+                    lMinutes = "0" + lTime.getMinutes().toString();
+                } else {
+                    lMinutes = lTime.getMinutes().toString();
+                }
+
+                if (lTime.getSeconds() < 10) {
+                    lSeconds = "0" + lTime.getSeconds().toString();
+                } else {
+                    lSeconds = lTime.getSeconds().toString();
+                }
+
+
+                if (lTime.getHours() < 10) {
+                    lHours = "0" + lTime.getHours().toString();
+                } else {
+                    lHours = lTime.getHours().toString();
+                }
+
+
+
+                document.querySelector(".winner-time").textContent = lHours + " : " + lMinutes + " : " +
+                    lSeconds;
+            },
+
+            setTimesToDocument: function (rTime, lTime) {
+                var lHours, lMinutes, lSeconds, rHours, rMinutes, rSeconds;
+
+
+                if (lTime.getMinutes() < 10) {
+                    lMinutes = "0" + lTime.getMinutes().toString();
+                } else {
+                    lMinutes = lTime.getMinutes().toString();
+                }
+
+                if (lTime.getSeconds() < 10) {
+                    lSeconds = "0" + lTime.getSeconds().toString();
+                } else {
+                    lSeconds = lTime.getSeconds().toString();
+                }
+
+
+                if (lTime.getHours() < 10) {
+                    lHours = "0" + lTime.getHours().toString();
+                } else {
+                    lHours = lTime.getHours().toString();
+                }
+
+
+
+                document.getElementById("laspe-Time").textContent = lHours + " : " + lMinutes + " : " +
+                    lSeconds;
+
+
+                if (rTime.getMinutes() < 10) {
+                    rMinutes = "0" + rTime.getMinutes().toString();
+                } else {
+                    rMinutes = rTime.getMinutes().toString();
+                }
+
+                if (rTime.getSeconds() < 10) {
+                    rSeconds = "0" + rTime.getSeconds().toString();
+                } else {
+                    rSeconds = rTime.getSeconds().toString();
+                }
+
+
+                if (rTime.getHours() < 10) {
+                    rHours = "0" + rTime.getHours().toString();
+                } else {
+                    rHours = rTime.getHours().toString();
+                }
+
+
+
+                document.getElementById("timer-Reset").textContent = rHours + " : " + rMinutes + " : " +
+                    rSeconds;
+
+            },
+
+            setpauseUI: function () {
+                document.querySelector(".game-middle").innerHTML = gamepausehmtl;
+
+            },
+            setPlayButton: function () {
+
+                document.getElementById("btn-pause").classList.add("paused");
+                document.getElementById("btn-pause").innerHTML = '<i class="ion-arrow-right-b"></i> Play';
+            },
+            setPauseButton: function () {
+                document.getElementById("btn-pause").classList.remove("paused");
+                document.getElementById("btn-pause").innerHTML = '<i class="ion-ios-pause "></i> Pause';
+            },
+            setupGameLevelDocument: function (l) {
+                document.querySelector(".difficulty-level").innerHTML = l;
+            },
+            setupMoves: function (m) {
+                document.getElementById("moves-id").innerHTML = m;
+            }
+
+
+
+
+
+        }
+
+
+
+
+
+
+    })();
+
+
+
+
+
+
+
+
+
+    /**************************************************************************/
+    /********************** Controll the UI and Modlue *******************************/
+    /**************************************************************************/
+
+
+
+
+    var controller = (function (suController, uiController) {
+
+
+
+        /********************************************/
+        /****** rand for rand cell *************/
+
+        var firstRow = function (allcells)
+
+        {
+            var ranArry = [];
+
+
+
+
+            for (var x = 0; x < 9; x++) {
+                var r = Math.floor(Math.random() * 9) + 1;
+                var isExist = false;
+                for (var k = 0; k < ranArry.length; k++) {
+                    if (ranArry[k] == r) {
+                        isExist = true;
+                    }
+
+                }
+
+
+                if (isExist) {
+                    x--;
+                } else {
+                    ranArry.push(r);
+                }
+
+            }
+            console.log(ranArry);
+
+
+            for (var k = 0; k < ranArry.length; k++) {
+                allcells[k].value = ranArry[k];
+                allcells[k].preset = true;
+            }
+
+
+
+
+
+            return ranArry;
+
+        }
+
+
+        var pauseFunction = function () {
+            //  console.log(suController.getGameStatus());
+
+            var status = suController.getGameStatus();
+
+            if (status == "play") {
+                suController.setGameStatus("pause");
+
+                uiController.setpauseUI();
+                uiController.setPlayButton();
+                // hide selection bar
+                uiController.hideSelectBar();
+
+            } else if (status == "pause") {
+                suController.setGameStatus("play");
+                uiController.setPauseButton();
+                loadTable();
+
+            }
+
+
+            // console.log(suController.getGameStatus());
+
+
+
+
+
+
+        }
+
+        var winnerGame = function () {
+
+            uiController.setupWinnerHTML();
+            uiController.removeTopInfoHMTL();
+            uiController.removeSidefoHMTL();
+            uiController.hideSelectBar();
+
+            var times = suController.getTimes();
+
+            // console.log(times.rTime);
+            //console.log(suController.checkIfReset());
+            uiController.setWinnerTimesToDocument(times.lTime);
+
+
+
+            document.querySelector(".winner-button").addEventListener('click', function () {
+
+                newGameFunction();
+            });
+
+
+        }
+
+
+
+        var newGameFunction = function () {
+            uiController.hideSelectBar();
+            uiController.setupNewGameHTML();
+            suController.setGameStatus("new");
+            uiController.setPauseButton();
+            //uiController.removeGameOptionfoHMTL();
+            uiController.removeTopInfoHMTL();
+            uiController.removeSidefoHMTL();
+
+
+
+
+            document.getElementById("newGame-Button").addEventListener('click', function () {
+                var v = document.getElementById("select1").value;
+                suController.setNewGameLevel(v);
+                console.log(v);
+                suController.setGameStatus("play");
+                //uiController.setGameOptionfoHMTL();
+                uiController.setTopInfoHMTL();
+                uiController.setSidefoHMTL();
+
+                uiController.setupTableHTML();
+
+                randomCellsGen();
+
+                suController.restartTimer();
+                // suController.resetResetTime();
+                suController.resetResetTime();
+
+                //suController.setNewGameLevel(v);
+                //randomCellsGen();
+                //console.log(suController.getDefault());
+
+                //loadTable();
+            });
+
+        }
+
+
+        var randomCellsGen = function () {
+            // set all cells to 0 
+            suController.setupBlank();
+
+
+
+
+            // create the first row
+
+            firstRow(suController.getDefault());
+
+
+
+
+
+            // console.log(suController.getDefault());
+
+            backtracking(suController.getDefault());
+
+            suController.setLevel();
+            console.log(suController.getCurrentGameLevel());
+            //uiController.setupGameLevelDocument(suController.getCurrentGameLevel()); 
+            uiController.setupMoves(suController.getMovesLeft());
+            uiController.setupGameLevelDocument(suController.getCurrentGameLevel());
+            uiController.setupTables(suController.getDefault());
+            uiController.formatAllcellBackground(suController.getDefault());
+
+        }
+
+
+        var loadTable = function () {
+            uiController.setupTableHTML();
+
+            // hide selection bar
+            uiController.hideSelectBar();
+
+
+            //clear main selection value 
+            suController.clearMainSelect();
+            uiController.setupTables(suController.getDefault());
+            uiController.formatAllcellBackground(suController.getDefault());
+        }
+
+        var getRandom = function (cells) {
+
+
+
+            for (var x = 0; x < cells.length; x++) {
+                var rAn = Math.floor((Math.random() * 9) + 1);
+                suController.setFamilyCell(cells[x]);
+                var ranFam = suController.isFamilyCell(rAn);
+
+                if (ranFam.isfam) {
+                    x--;
+                } else {
+                    cells[x].value = rAn;
+                    cells[x].preset = true;
+                }
+
+
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+        /********************************************/
+        /****** backtracking to solve sudoku *************/
+
+        var backtracking = function (allCells) {
+            //console.log(allCells);
+
+            var resetCount = 0;
+            var goback = false;
+
+            for (var i = 0; i < 81; i++)
+
+            {
+
+                if (!allCells[i].preset) {
+                    var resetAll = false;
+                    var isEX = true;
+
+                    var currentCell = allCells[i].value;
+                    currentCell++;
+
+
+                    while (isEX) {
+
+                        if (currentCell === 10) {
+                            isEX = false;
+                            allCells[i].value = 0;
+                            i = i - 2;
+                            resetCount++;
+                            goback = true;
+                        } else {
+                            goback = false;
+                            suController.setFamilyCell(allCells[i]);
+                            var fam = suController.isFamilyCell(currentCell);
+
+
+                            if (!fam.isfam) {
+                                allCells[i].value = currentCell;
+                                isEX = false;
+                            } else {
+                                currentCell++;
+                            }
+
+
+                        }
+
+
+
+
+                    }
+
+
+
+
+                }
+
+                //  console.log(resetCount);
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+        return {
+            setup: function () {
+                suController.setupDefault();
+
+                //uiController.setupTableHTML();
+                uiController.setupTables(suController.getDefault());
+                uiController.formatAllcellBackground(suController.getDefault());
+            },
+
+            setTable: function () {
+                uiController.setupTableHTML();
+            },
+
+            setupRandomGenerateGame: function () {
+
+                randomCellsGen();
+
+
+
+
+
+            },
+
+            listenTable: function () {
+                var clID;
+
+
+                //add listener to grid and get cell 
+                document.querySelector(".game-middle").addEventListener('click', function (Event) {
+
+                    clID = Event.target.id;
+
+                    //clear all error cells
+                    uiController.clearErrorBackground(suController.getDefault());
+
+
+                    //check if id is vaild
+                    // if its vaild get cell data
+                    if (suController.checkIDvaild(clID)) {
+                        var clickCell = suController.getCellbyID(clID);
+
+                        uiController.formatAllcellBackground(suController.getDefault());
+                        // format clicked cell background 
+                        uiController.clickBackground(clickCell);
+
+                        // show selection bar
+                        uiController.showSelectBar();
+
+
+                        //set selection value
+                        suController.setMainSelect(clickCell);
+
+                        //check find family cells
+                        //all cells in the same row, same col and block
+
+                        suController.setFamilyCell(clickCell);
+
+
+                        //console.log(suController.getFamilyCell());
+
+
+                    } else {
+                        // clear background formate
+                        uiController.formatAllcellBackground(suController.getDefault());
+
+
+                        // hide selection bar
+                        uiController.hideSelectBar();
+
+
+                        //clear main selection value 
+                        suController.clearMainSelect();
+                    }
+
+
+                });
+
+
+
+
+            },
+
+
+            listenSelectBar: function () {
+
+                document.querySelector('.game-bottom').addEventListener('click', function (Event) {
+
+
+                    //clear all error cells
+                    uiController.clearErrorBackground(suController.getDefault());
+
+
+
+                    var selClick = Event.target.id;
+
+                    if (selClick != " ") {
+
+                        //get selection value from the id
+                        var sp = selClick.split('-');
+
+                        var selValue = parseInt(sp[1]);
+                        // console.log(selValue);
+                        //    console.log(suController.getFamilyCell());
+
+
+                        //     console.log(suController.isFamilyCell(selValue).isfam);
+                        //    console.log(suController.isFamilyCell(selValue).Arry);  
+
+                        ///check if selction value exist in family cells and if so get existing cells 
+
+
+
+
+
+
+                        var fErrCell = suController.isFamilyCell(selValue);
+
+
+                        if (fErrCell.isfam) {
+                            //console.log("Canotexchange");
+                            uiController.errorBackground(fErrCell.Arry);
+                        } else {
+
+                            suController.exchangeValues(selValue);
+                            //console.log(suController.getDefault());
+                            uiController.setupTables(suController.getDefault());
+
+                            console.log(suController.checkComplete());
+
+                            if (!suController.checkComplete()) {
+                                suController.setGameStatus("win");
+                                console.log("winner");
+                                winnerGame();
+                            }
+
+
+
+
+                            // console.log("exchange");
+                        }
+
+
+
+
+
+
+                    }
+
+
+
+
+                });
+
+
+            },
+
+            setupTime: function () {
+                suController.resetResetTime();
+                suController.timeChange();
+            },
+
+            timeChange: function () {
+
+
+                setInterval(function () {
+
+                    if (suController.getGameStatus() == "play") {
+
+
+                        if (suController.checkIfReset()) {
+
+
+                            suController.clearOneCellRandom();
+                            suController.resetResetTime();
+                            // hide selection bar
+                            uiController.hideSelectBar();
+
+
+                            //clear main selection value 
+                            suController.clearMainSelect();
+                            uiController.setupTables(suController.getDefault());
+                            uiController.formatAllcellBackground(suController.getDefault());
+
+                        }
+
+
+                        suController.timeChange();
+
+                        var times = suController.getTimes();
+
+                        // console.log(times.rTime);
+                        //console.log(suController.checkIfReset());
+                        uiController.setTimesToDocument(times.rTime, times.lTime);
+                    }
+
+                }, 1000);
+
+            },
+
+            listenGameOptionBar: function () {
+                document.getElementById("game-controller-id").addEventListener('click', function (Event) {
+                    // console.log("ll");
+
+                    var eId = Event.target.id;
+
+                    switch (eId) {
+                        case "btn-reset":
+                            if (suController.getGameStatus() == "play") {
+                                suController.runResetCells();
+                                suController.restartTimer();
+                                // suController.resetResetTime();
+                                suController.resetResetTime();
+                                loadTable();
+                            }
+                            console.log("reset");
+                            break;
+
+                        case "btn-new":
+                            //  console.log("new");
+                            newGameFunction();
+                            break;
+
+                        case "btn-pause":
+
+
+                            pauseFunction();
+
+                            //   console.log("pause");
+                            break;
+                    }
+
+
+
+
+                });
+
+            },
+
+            listenNewGameOption: function () {
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+    })(sudokuController, UIController);
+
+
+    controller.setupTime();
+    controller.timeChange();
+    controller.setTable();
+    controller.setupRandomGenerateGame();
+
+    //controller.setup();///
+    controller.listenTable();
+    controller.listenSelectBar();
+    controller.listenGameOptionBar();
+    
+    </script>
+<!--Game Audio JavaScript-->
+
+
+<script>
+    var bflat = new Audio();
+    bflat.src = "sounds/pause.ogg";
+
+    function PlaySound1() {
+        bflat.play();
+    }
+</script>
+
+<script>
+    var bflat2 = new Audio();
+    bflat2.src = "sounds/new.ogg";
+
+    function PlaySound2() {
+        bflat2.play();
+    }
+</script>
+
+<script>
+    var bflat3 = new Audio();
+    bflat3.src = "sounds/edit.ogg";
+
+    function PlaySound3() {
+        bflat3.play();
+    }
+</script>
+
+<script>
+    var bflat4 = new Audio();
+    bflat4.src = "sounds/erase.ogg";
+
+    function PlaySound5() {
+        bflat4.play();
+    }
+</script>
+<!--Game Audio Jquery-->
+
+<script>
+    $(document).ready(function () {
+        var obj = document.createElement("audio");
+        obj.src = "sounds/pause.ogg";
+        obj.autoPlay = false;
+        obj.preLoad = true;
+        obj.controls = true;
+
+        $("#btn-pause").click(function () {
+            obj.play();
+
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var obj = document.createElement("audio");
+        obj.src = "sounds/erase.ogg";
+        obj.autoPlay = false;
+        obj.preLoad = true;
+        obj.controls = true;
+
+        $("#defaults").click(function () {
+            obj.play();
+
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var obj = document.createElement("audio");
+        obj.src = "sounds/pause.ogg";
+        obj.autoPlay = false;
+        obj.preLoad = true;
+        obj.controls = true;
+
+        $("#hide").click(function () {
+            obj.play();
+
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        var obj = document.createElement("audio");
+        obj.src = "sounds/erase.ogg";
+        obj.autoPlay = false;
+        obj.preLoad = true;
+        obj.controls = true;
+
+        $("#btn-reset").click(function () {
+            obj.play();
+
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        var obj = document.createElement("audio");
+        obj.src = "sounds/erase.ogg";
+        obj.autoPlay = false;
+        obj.preLoad = true;
+        obj.controls = true;
+
+        $(".clear-ls").click(function () {
+            obj.play();
+
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        var obj = document.createElement("audio");
+        obj.src = "sounds/new.ogg";
+        obj.autoPlay = false;
+        obj.preLoad = true;
+        obj.controls = true;
+
+        $("#btn-new").click(function () {
+            obj.play();
+
+        });
+    });
+</script>
+
+<!--Game Background Change Color Funtions-->
+
+<script src="react.min.js"></script>
+
+
+<script>
+    // App
+    var App = React.createClass({
+        displayName: "App",
+        /*setting state*/
+        getInitialState: function getInitialState() {
+            return {
+                bgColor: "transparent"
+            };
+
+        },
+        /*changes state*/
+        handleColorChange: function handleColorChange(color) {
+            // when we set state directly, react doesn't know
+            // about it. that's why we use setState
+            this.setState({
+                bgColor: color
+            });
+        },
+        /*for the lifecycle methods*/
+        updateBackgroundColor: function updateBackgroundColor() {
+            var body = document.querySelector('body');
+            body.style.background = this.state.bgColor;
+        },
+        /*lifecycle methods*/
+        componentDidMount: function componentDidMount() {
+            this.updateBackgroundColor();
+        },
+        componentDidUpdate: function componentDidUpdate() {
+            this.updateBackgroundColor();
+        },
+        render: function render() {
+            return (
+                /* by calling the title here on the component, we can access this.props on header */
+                React.createElement("div", {
+                        className: "foo"
+                    },
+                    React.createElement("h1", null, "Change Theme"),
+                    React.createElement("label", null,
+                        React.createElement(ColorPicker, {
+                            value: this.state.bgColor,
+                            onColorChange: this.handleColorChange
+                        }))));
+
+
+
+        }
+    });
+
+
+    // ColorPicker component
+    var ColorPicker = React.createClass({
+        displayName: "ColorPicker",
+        propTypes: {
+            value: React.PropTypes.string.isRequired,
+            onColorChange: React.PropTypes.func
+        },
+
+        handleChange: function handleChange(value) {
+            // If whoever rendered us (the ColorPicker) is interested
+            // when the color changes, let them know
+            if (this.props.onColorChange)
+                this.props.onColorChange(value);
+        },
+        render: function render() {
+            var _this = this;
+            return (
+
+                React.createElement("div", {
+                        className: ""
+                    },
+                    React.createElement("div", {
+                            className: "bgCircle"
+                        },
+                        React.createElement("div", {
+                            className: "circle color1",
+                            onClick: function onClick() {
+                                return _this.handleChange('#FECEA8');
+                            }
+                        }),
+                        React.createElement("div", {
+                            className: "circle color2",
+                            onClick: function onClick() {
+                                return _this.handleChange('tan');
+                            }
+                        }),
+                        React.createElement("div", {
+                            className: "circle color3",
+                            onClick: function onClick() {
+                                return _this.handleChange('#eeeeea');
+                            }
+                        }),
+                        React.createElement("div", {
+                            className: "circle color4",
+                            onClick: function onClick() {
+                                return _this.handleChange('#F8C7CD');
+                            }
+                        }))));
+
+
+
+
+
+        }
+    });
+
+
+    React.render(React.createElement(App, null), document.querySelector('#app'));
+</script>
+
+
+<!--Game Toggles & Hides-->
+
+<script>
+    var toggle = function () {
+        var mydiv = document.getElementById('app');
+        if (mydiv.style.display === 'none' || mydiv.style.display === '')
+            mydiv.style.display = 'flex';
+        else
+            mydiv.style.display = 'none'
+    }
+</script>
+
+<script language="JavaScript">
+    function setVisibility(id, visibility) {
+        document.getElementById(id).style.display = visibility;
+    }
+</script>
+
+<script>
+    var show = function () {
+        var mydiv = document.getElementById('game-controller-id');
+        if (mydiv.style.display === 'none' || mydiv.style.display === '')
+            mydiv.style.display = 'block';
+        else
+            mydiv.style.display = 'none'
+    }
+</script>
+
+<script>
+    var hide = function () {
+        var mydiv = document.getElementById('hide');
+        if (mydiv.style.display === 'none' || mydiv.style.display === '')
+            mydiv.style.display = 'none';
+        else
+            mydiv.style.display = 'none'
+    }
+</script>
+
+<script>
+    var reveal = function () {
+        var mydiv = document.getElementById('hide');
+        if (mydiv.style.display === 'none' || mydiv.style.display === '')
+            mydiv.style.display = 'block';
+        else
+            mydiv.style.display = 'none'
+    }
+</script>
+
+<script>
+    var def = function () {
+        var mydiv = document.getElementById('defaults');
+        if (mydiv.style.display === 'none' || mydiv.style.display === '')
+            mydiv.style.display = 'block';
+        else
+            mydiv.style.display = 'none'
+    }
+</script>
+
+<script>
+    var hidedef = function () {
+        var mydiv = document.getElementById('defaults');
+        if (mydiv.style.display === 'none' || mydiv.style.display === '')
+            mydiv.style.display = 'none';
+        else
+            mydiv.style.display = 'none'
+    }
+</script>
+<script>
+    function hidebtnnew() {
+        var x = document.getElementById('btn-new');
+        if (x.style.visibility === 'hidden') {
+            x.style.visibility = 'visible';
+        } else {
+            x.style.visibility = 'hidden';
+        }
+    }
+</script>
+<script>
+    function hidebtnreset() {
+        var x = document.getElementById('btn-reset');
+        if (x.style.visibility === 'hidden') {
+            x.style.visibility = 'visible';
+        } else {
+            x.style.visibility = 'hidden';
+        }
+    }
+</script>
+
+<!--Click Count To Local Storage-->
+
+<script>
+    // Get elements from DOM
+    var count = document.getElementById("count");
+
+    // Check if browser supports Local Storage
+    if (typeof (Storage) !== "undefined") {
+
+        // Check if localStorage.clickCount is defined
+        if (localStorage.clickCount) {
+            // Everything is fine :D
+        } else {
+            // Set to 1
+            localStorage.clickCount = 0;
+        }
+
+        // Function when button is clicked
+        function btnClicked() {
+
+            // Count 1
+            localStorage.clickCount = Number(localStorage.clickCount) + 1;
+
+            // Outputs the clickCount
+            count.innerHTML = localStorage.clickCount;
+        }
+        // Outputs the clickCount
+        count.innerHTML = localStorage.clickCount;
+
+    } else {
+        // If the browser doesn't support Local Storage
+        window.alert("Sorry, your browser does not support web storage...");
+    }
+    document.getElementById("count");
+
+    function clearLocalStorage() {
+        localStorage.clear();
+    }
+
+</script>
+
+<div onclick="location.href=location.href" id="defaults" style="position:fixed;top: 32px;left: 0;margin-left: -130px;margin-right: auto;right: 0;text-align:center;justify-content: center;font-size:10px;font-family:lato-bold;margin-top: 150px;display:none;">Restore
+    Defaults</div>
+
+<div onclick="toggle();hide();hidedef();" id="hide" style="position:fixed;top: 120px;left: 0;margin-left: 180px;margin-right: auto;right: 0;text-align:center;justify-content: center;font-size:12px;font-family:lato-bold;margin-top: 150px;display:none;">OK</div>
+</body>
+
+</html>
